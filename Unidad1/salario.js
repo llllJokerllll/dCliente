@@ -28,15 +28,15 @@ if (isNaN(salario)) {
 baseimp = salario * 14;
 
 if (baseimp >= 0 && baseimp <= 12450) {
-    cobra -= (cobra * t1);
+    cobra -= 14 / (baseimp * t1);
 } else if (baseimp > 12450 && baseimp <= 20200) {
-    cobra -= ((12450 * t1) + (cobra - 12450) * t2);
+    cobra -= 14 / ((12450 * t1) - (baseimp - 12450) * t2);
 } else if (baseimp > 20200 && baseimp <= 35200) {
-    cobra -= ((12450 * t1) + (20200 - 12450) * t2 + (cobra - 20200) * t3);
+    cobra -= 14 / ((12450 * t1) - (20200 - 12450) * t2 - (baseimp - 20200) * t3);
 } else if (baseimp > 35200 && baseimp <= 60000) {
-    cobra -= ((12450 * t1) + (20200 - 12450) * t2 + (35200 - 20200) * t3 + (cobra - 35200) * t4);
+    cobra -= 14 / ((12450 * t1) - (20200 - 12450) * t2 - (35200 - 20200) * t3 - (baseimp - 35200) * t4);
 } else if (baseimp > 60000) {
-    cobra -= ((12450 * t1) + (20200 - 12450) * t2 + (35200 - 20200) * t3 + (60000 - 35200) * t4 + (cobra - 60000) * t5);
+    cobra -= 14 / ((12450 * t1) - (20200 - 12450) * t2 - (35200 - 20200) * t3 - (60000 - 35200) * t4 - (baseimp - 60000) * t5);
 }
 
 alert("El salario neto es: " + cobra);
