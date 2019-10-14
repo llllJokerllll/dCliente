@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Agrupaciones y formatos</title>
+</head>
+<body>
+<p id="parrafo"></p>
+<script>
+
+console.group("bucle");
+for(var i=0;i<10;i++){console.log(i);}
+console.groupEnd();
+
+console.groupCollapsed("bucle2");
+for(var i=0;i<10;i++){console.log(i);}
+console.groupEnd();
+
+var lenguajes = [
+    { nombre: "JavaScript", extension: ".js" },
+    { nombre: "TypeScript", extension: ".ts" },
+    { nombre: "Java", extension: ".java" }
+];
+console.table(lenguajes);
+var n=10.1;
+console.log("n : %d",n)
+console.log("n : %f",n);
+	 
+</script>
+
+
+</body>
+</html>

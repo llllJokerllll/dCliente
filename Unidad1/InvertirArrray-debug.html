@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Array numeros</title>
+</head>
+<body>
+<p id="parrafo"></p>
+<script>
+
+function intercambiar(vectornumeros, i,j)
+{
+	let aux = vectornumeros[i];
+	vectornumeros[i]= vectornumeros[j];
+	vectornumeros[j] = aux;
+
+}
+
+var numeros = [2, 4, 6, 8, 10, 12];
+console.log(numeros.toString());
+
+for (var  i=0; i<numeros.length/2; i++)
+{
+    
+	intercambiar( numeros, i, numeros.length-1-i);
+	/*let aux = numeros[i];
+    numeros[i] = numeros[numeros.length-1-i];
+    numeros[numeros.length-1-i] = aux;*/
+}
+
+console.log(numeros);
+
+</script>
+
+
+</body>
+</html>

@@ -26,7 +26,7 @@ if (altura < 2) {
     }
     console.log("");
     for (i = 1; i <= altura; i++) {
-        console.log(" *".repeat(i));
+        console.log(" ".repeat(altura - i) + " *".repeat(i));
     }
 } else {
     for (i = 1; i <= altura; i++) {
@@ -46,6 +46,6 @@ if (altura < 2) {
     }
     console.log("");
     for (i = 1; i <= altura; i++) {
-        console.log(" *".repeat(i));
+        console.log(" ".repeat(altura - i) + " *".repeat(i));
     }
 }
