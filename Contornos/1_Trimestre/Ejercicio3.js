@@ -6,7 +6,7 @@ function decBin (numero) {
 
     } else {
         decBin( numero / 2 );
-        return numero % 2 ;
+        return numero % 2;
 
     }
 }
