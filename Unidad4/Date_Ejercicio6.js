@@ -6,4 +6,4 @@ function fechaDevolucion( a, b ) {
     return fDevolucion;
 }
 
-var fechaEntrada = prompt("Por favor, introduzca el día de entrada")
+var fechaEntrada = prompt("Por favor, introduzca el día de entrada");
