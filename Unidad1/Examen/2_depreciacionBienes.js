@@ -38,7 +38,7 @@ do {
     formula = (tipoDeBien * (tipoDeBien + 1)) / 2;
 
     var titulo = ("Nombre del bien: " + nombreDelBien);
-    document.body.innerText = nombreDelBien;
+    document.body.innerText += nombreDelBien;
     var tabla = '<table border="1"><tr><td>Año</td><td>Depreciación Anual</td><td>Depreciación Acumulada</td><td>Valor Neto</td></tr>';
 
     for (let i = tipoDeBien; i >= 1; i--) {
@@ -57,6 +57,6 @@ do {
     
         tabla += '</table>';
 
-        document.body.innerHTML = tabla;
+        document.body.innerHTML += tabla;
 }while (nombreDelBien != '*');
 

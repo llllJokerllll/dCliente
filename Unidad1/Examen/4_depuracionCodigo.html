@@ -16,14 +16,15 @@
         for ( let cont = 1; ( tamano - 2 ) >= cont; cont++)
 		{
             document.write("*");
+            console.group("bucle con variable i");
            
 			for ( var i = 0; ( tamano - 2 ) > i; i++) // Aquí restamos 1 mas al tamaño para ajustar los espacios que se pintan. cambiamos el let de i por var para que nos guarde el valor final de i.
 			{
                 document.write("&nbsp;&nbsp;");
-				
+				console.log(i); // añadimos esta instrucción para la impresión en consola del valor i
             }
             document.write("*<br>");
-			
+			console.groupEnd();
         }
 
         for( let cont=0; tamano > cont; cont++)
@@ -31,7 +32,7 @@
             document.write("*");
         }
         
-        console.log(i); // añadimos esta instrucción para la impresión en consola del valor i
+        //console.log(i); // añadimos esta instrucción para la impresión en consola del valor i
     
  
 
