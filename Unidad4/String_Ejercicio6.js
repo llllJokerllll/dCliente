@@ -1,16 +1,20 @@
-var texto = prompt("Por favor, introduzca un texto");
+function compruebaLetras() {
+var texto = document.getElementById("textarea").value;
 const ABECEDARIO = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-var textoSimple = texto.replace(" ", "").toUpperCase();
+var textoSimple = texto.toUpperCase().replace(/ /g, "");
 var letras = "";
 
-for ( let i = 0; i <= 27; i++ ) {
+for ( let i = 0; i <= ABECEDARIO.length; i++ ) {
+    let aux = 0;
     for ( let j = 0; j < textoSimple.length; j++ ) {
-        var aux = 0;
-        if ( ABECEDARIO.charAt(i) == textoSimple.charAt(j) ) {
+        if ( ABECEDARIO.charAt( i ) == ( textoSimple.charAt( j ) ) ) {
             aux += 1;
         }
     }
     if ( aux == 0 ) {
-        letras += ABECEDARIO.charAt(i);
+        letras += ABECEDARIO.charAt( i );
     } 
+}
+
+alert( letras );
 }

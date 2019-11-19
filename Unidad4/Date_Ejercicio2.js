@@ -1,5 +1,5 @@
-var nombre = prompt("Por favor, introduzca su nombre");
 var fechaInicio = new Date();
+var nombre = prompt("Por favor, introduzca su nombre");
 var apellidos = prompt("Por favor, introduzca sus apellidos");
 var fechaFinal = new Date();
 

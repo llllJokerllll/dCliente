@@ -1,6 +1,5 @@
 var texto = prompt("Por favor, introduzca su texto a codificar aquí");
 const ABECEDARIO = " ABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789";
-const NUMEROS = "0123456789";
 var textoMayus = texto.toUpperCase();
 var textoCodificado = "";
 var textoSalida = "";
