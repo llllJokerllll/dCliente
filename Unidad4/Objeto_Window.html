@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Propiedades de Ventana</title>
+</head>
+
+<body>
+
+    <div id="infoventana">
+    </div>
+    <div id="botones">
+        <button onclick="crearVentana()">Crear Ventana</button>
+        <button onclick="cerrarVentana()">Cerrar Ventana</button>
+        <button onclick="redimensionarVentana()">Redimensionar ResizeBy</button>
+        <button onclick="redimensionarVentana2()">Redimensionar ResizeTo</button>
+        <button onclick="moverVentana()">Mover MoveBy</button>
+        <button onclick="moverVentana2()">Mover MoveTo</button>
+        <button onclick="scrollVentana()">ScrollBy</button>
+        <button onclick="scrollVentana2()">ScrollTo</button>
+        <button onclick="ponerFoco()">Poner Foco en Ventana</button>
+        <button onclick="imprimir()">Imprimir</button>
+    </div>
+
+    <script>
+        var miVentana;
+
+        function crearVentana() {
+            miVentana = window.open("lorem.html", "lorem", "height=200, width=500");
+            escribeInfo();
+        }
+
+        function cerrarVentana() {
+            miVentana.close();
+        }
+
+        function redimensionarVentana() {
+            if (!miVentana.closed) {
+                miVentana.focus();
+                miVentana.resizeBy(10, 10);
+            }
+            escribeInfo();
+        }
+
+        function redimensionarVentana2() {
+            if (!miVentana.closed) {
+                miVentana.focus();
+                miVentana.resizeTo(50, 50);
+            }
+            escribeInfo();
+        }
+
+        function scrollVentana() {
+            if (!miVentana.closed) {
+                miVentana.focus();
+                miVentana.scrollBy(0, 20);
+            }
+            escribeInfo();
+        }
+
+        function scrollVentana2() {
+            if (!miVentana.closed) {
+                miVentana.focus();
+                miVentana.scrollTo(0, miVentana.innerHeight / 2);
+            }
+            escribeInfo();
+        }
+
+        function moverVentana() {
+            if (!miVentana.closed) {
+                miVentana.focus();
+                miVentana.moveBy(10, 10);
+            }
+            escribeInfo();
+        }
+
+        function moverVentana2() {
+            if (!miVentana.closed) {
+                miVentana.focus();
+                miVentana.moveTo(100, 150);
+            }
+            escribeInfo();
+        }
+
+        function ponerFoco() {
+            if (!miVentana.closed) {
+                miVentana.focus();
+            }
+            escribeInfo();
+        }
+
+        function imprimir() {
+            if (!miVentana.closed) {
+                miVentana.focus();
+                miVentana.print();
+            }
+        }
+
+        function escribeInfo() {
+            document.getElementById("infoventana").innerHTML = "<p>Nombre: " + miVentana.name + "<br>Ancho Externo: " +
+                miVentana.outerWidth + "<br>Alto Externo: " + miVentana.outerHeight + "<br>Ancho Interno: " + miVentana
+                .innerWidth + "<br> Alto Interno: " + miVentana.innerHeight + "<br>Scroll Horizontal: " + miVentana
+                .pageXOffset + "<br>Scroll Vertical: " + miVentana.pageYOffset + "<br>Distancia desde la Izq.: " +
+                miVentana.screenX + "<br>Distancia desde Arriba: " + miVentana.screenY + "</p>";
+        }
+    </script>
+</body>
+
+</html>
