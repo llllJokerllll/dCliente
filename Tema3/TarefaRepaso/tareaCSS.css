@@ -1,0 +1,40 @@
+
+body {
+    background-color: lightcyan;
+    color: darkblue;
+}
+.req {
+    color: red;
+}
+.column {
+    float: left;
+}
+.column ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.inline {
+    display: inline-block;
+}
+.itallic {
+    font-style: italic;
+}
+.spacer {
+    padding: 1px;
+    margin: 1px;
+    text-indent: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    color: white;
+}
+.buttons {
+    padding-top: 7px;
+}
+.button {
+    font-size: 1.5em;
+    color: darkblue;
+}
+legend {
+    font-size: 1.5em;
+}

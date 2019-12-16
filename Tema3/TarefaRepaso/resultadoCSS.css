@@ -1,0 +1,8 @@
+body {
+    background-color: lightcyan;
+    color: darkblue;
+}
+.invalidoTit {color: red;}
+.invalidoParr {color: darkred;}
+.validoParr {color: blueviolet;}
+.otros {color: black;}
