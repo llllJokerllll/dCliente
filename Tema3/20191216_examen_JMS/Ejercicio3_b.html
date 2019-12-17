@@ -1,0 +1,58 @@
+﻿<!DOCTYPE hml>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type“ content=" text/html;charset=iso-8859-1" />
+	<title></title>
+
+	<style type="text/css">
+		div {
+			text-align: center;
+			font-size: 200%;
+			float: left;
+			margin: 20px;
+		}
+	</style>
+
+
+
+</head>
+
+<body>
+	<div id="arbol">
+	</div>
+	<script>
+
+		var altura = 12
+		var altTronco = 4;
+		var anchoTronco = 2;
+		var piramideVerde = "<span style='color:green;'>*</span>";
+		var troncoMarron = "<span style='color:brown;'>*</span>";
+		var lucesAzules = "<span style='color:blue;'>o</span>";
+		let resultado = "";
+		for (let i = 1; i <= altura; i++) {
+			var azar = Math.round(Math.random() * i + (altura - i));
+			for (let j = 1; j <= altura; j++) {
+				if ( j <= altura - i ) {
+					resultado += " ";
+				} else if ( azar == j ) {
+					resultado += lucesAzules;
+				} else {
+					resultado += piramideVerde;
+				}
+			}
+			resultado += "<br>";
+		}
+		let medio = altura / 2;
+		for (let j = 0; j < altTronco; j++) {
+			resultado += (" ".repeat(medio) + troncoMarron.repeat(anchoTronco) + "<br>");
+		}
+		document.getElementById("arbol").innerHTML = resultado;
+
+		setTimeout(function () {
+			window.location.reload(1);
+		}, 1000);
+	</script>
+</body>
+
+</html>

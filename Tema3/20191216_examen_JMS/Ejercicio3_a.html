@@ -1,0 +1,45 @@
+﻿<!DOCTYPE hml>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+	<title>Ejercicio3a</title>
+
+	<style type="text/css">
+		div {
+			text-align: center;
+			font-size: 200%;
+			float: left;
+			margin: 20px;
+		}
+	</style>
+
+
+
+</head>
+
+<body>
+	<div id="arbol">
+	</div>
+	<script type="text/javascript">
+		var altura = parseInt(prompt("Por Favor, introduzca la altura del arbol"));
+		if (altura < 8 || altura > 15) {
+			alert("Error, introduzca un valor de altura válido entre 8 y 15");
+		} else {
+			let altTronco = 4;
+			let anchoTronco = 2;
+			let resultado = "";
+			for (let i = 1; i <= altura; i++) {
+				resultado += (" ".repeat(altura - i) + "*".repeat(i) + "<br>");
+			}
+			let medio = altura / 2;
+			for (let j = 0; j < altTronco; j++) {
+				resultado += (" ".repeat(medio) + "*".repeat(anchoTronco) + "<br>");
+			}
+			document.getElementById("arbol").innerHTML = resultado;
+		}
+
+	</script>
+</body>
+
+</html>
