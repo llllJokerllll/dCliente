@@ -1,60 +1,57 @@
-var alumno = {
-    "Nombre":"Juan",
-    "Apellidos":"Perez",
-    "Dni":"11222333A",
-    "Modulos":["prog", "code", "dwcs", "dwcc"],
-    "Provincia":"Ourense"};
-
-console.log(alumno.Nombre);
-console.log(alumno.Modulos[0]);
-
-class Alumno1 {
-    constructor( Nombre, Apellidos, Dni, Modulos, Provincia = "Ourense" ) {
-    this._Nombre = Nombre;
-    this._Apellidos = Apellidos;
-    this._Dni = Dni;
-    this._Modulos = Modulos;
-    this._Provincia = Provincia;
+class alumno {
+    constructor(Nombre, Apellidos, Dni, Modulos = [], Provincia) {
+        this._nombre = Nombre;
+        this._apellidos = Apellidos;
+        this._dni = Dni;
+        this._modulos = Modulos;
+        this._provincia = Provincia;
     }
 
     get Nombre() {
-        return this._Nombre;
+        return this._nombre;
     }
 
-    set Nombre(nom) {
-        this._Nombre = nom;
+    set Nombre(Nombre) {
+        this._nombre = Nombre;
     }
 
     get Apellidos() {
-        return this._Apellidos;
+        return this._apellidos;
     }
 
-    set Apellidos(ape) {
-        this._Apellidos = ape;
+    set Apellidos(Apellidos) {
+        this._apellidos = Apellidos;
     }
 
     get Dni() {
-        return this._Dni;
+        return this._dni;
     }
 
-    set Dni(dn) {
-        this._Dni = dn;
+    set Dni(Dni) {
+        this._dni = Dni;
     }
 
     get Modulos() {
-        return this._Modulos;
+        return this._modulos;
     }
 
-    set Modulos(mod) {
-        this._Modulos = mod;
+    set Modulos(Modulos) {
+        this._modulos = Modulos;
     }
 
-    get Provincias() {
-        return this._Provincias;
+    get Provincia() {
+        return this._provincia;
     }
 
-    set Provincias(pro) {
-        this._Provincias = pro;
+    set Provincia(Provincia) {
+        this._provincia = Provincia;
     }
 
 }
+
+var alumnoNuevo = new alumno("Luis","Perez","44444444Z", ["daw","dam","asir"],"Ourense");
+console.log(alumnoNuevo.Nombre);
+console.log(alumnoNuevo.Apellidos);
+console.log(alumnoNuevo.Dni);
+console.log(alumnoNuevo.Modulos);
+console.log(alumnoNuevo.Provincia);
