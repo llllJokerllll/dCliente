@@ -31,18 +31,28 @@ console.log(vectorNombres);
 const [first, second, third] = alumnosMayoresEdad(Obj1,Obj2,Obj3,Obj4,Obj5);
 console.log(first, second, third);
 
-//4.f
+//3.f
 var alumnosMenoresEdad = function(...x) { let vector = []; x.map(function (a) {if(a.edad < 18) {vector.push(a);}}); return vector;};
 console.log(alumnosMenoresEdad(Obj1,Obj2,Obj3,Obj4,Obj5).length);
 
-//4.g
+//3.g
 var alumnosOrdenados = [];
 alumnosOrdenados.push(Obj1,Obj2,Obj3,Obj4,Obj5);
 console.log(alumnosOrdenados.sort(function(a, b){if(a.edad < b.edad){return -1;}if(a.edad > b.edad){ return 1; } return 0}));
 
-//4.h
+//3.h
 var Obj6 = {"nombre":"jerónimo","edad":19};
 var Obj7 = {"nombre":"noa","edad":20};
 var nuevos = [Obj6, Obj7];
 var mayoresEdad = alumnosMayoresEdad(Obj1,Obj2,Obj3,Obj4,Obj5,...nuevos);
 console.log(mayoresEdad);
+
+//3.i
+const jero = mayoresEdad.filter(nombreConcreto => nombreConcreto.nombre == "jerónimo");
+console.log(jero);
+
+//3.j
+let { nombre, edad } = jero[0];
+console.log(nombre);
+console.log(edad);
+
