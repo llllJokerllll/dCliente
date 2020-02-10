@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var ciudades = new Set(["Madrid", "Sevilla", "Hamburgo", "Munich", "Berlin", "Roma", "Ginebra"]);
+        var capitales = new Set(["Madrid", "Berlin", "Roma", "Owata", "Atenas"]);
+        var ciudadCapital = new Set([...ciudades].filter(x => capitales.has(x)));
+        var ciudadNoCapital = new Set([...ciudades].filter(x => !capitales.has(x)));
+        console.log(ciudades);
+        console.log(capitales);
+        console.log(ciudadCapital)
+        console.log(new Set([...capitales,...ciudades]));
+        console.log(ciudadNoCapital);
+        
+        function imprimeSet(set){
+            set.forEach(elemento =>
+            {console.log(elemento);
+            })
+        }
+
+
+    </script>
+</body>
+</html>

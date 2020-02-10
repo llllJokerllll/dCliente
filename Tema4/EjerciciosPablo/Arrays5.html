@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arrays</title>
+</head>
+
+<body>
+    <input type="number" id="inp"></input>
+    <button onclick="engadir(document.getElementById('inp').value)">Añadir</button>
+    <button onclick="quitar()">Sacar</button>
+    <p id="salida"></p>
+    <p id="longitud"></p>
+    <script id="ej4">
+        class Cola{
+            constructor(){
+                this.vector = new Array();
+            }
+
+            engadir(valor){
+                this.vector.push(valor);
+            }
+
+            quitar(){
+                if (this.longitud() > 0){
+                    this.vector.shift();
+                }
+            }
+
+            longitud(){
+                return this.vector.length;
+            }
+
+            toString(){
+                let salida = "";
+                this.vector.forEach(element => {
+                    salida += element + " ";
+                });
+                return salida;
+            }
+        }
+
+        c = new Cola();
+
+        function engadir(valor){
+            c.engadir(valor);
+            pintar();
+        }
+
+        function quitar(){
+            c.quitar();
+            pintar();
+        }
+
+        function pintar(){
+            document.getElementById('salida').innerHTML = "Cola: " + c;
+            document.getElementById('longitud').innerHTML = "Longitud: " + c.longitud();
+        }   
+    </script>
+</body>
+
+</html>

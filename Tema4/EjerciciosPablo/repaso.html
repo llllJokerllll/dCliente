@@ -1,0 +1,102 @@
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="author" content="">
+<title></title>
+<script></script>
+</head>
+
+<body>
+	<h1>Gestion de socios</h1>
+	<h2>Datos del Socio</h2>
+
+	Numero del socio: <input type="text" name="num" id="num" value="" disabled=""><br>
+	DNI: <input type="text" name="dni" id="dni" value=""><br>
+	Nombre: <input type="text" name="nom" id="nom" value=""><br>
+	Apellidos: <input type="text" name="ape" id="ape" value=""><br>
+	Edad: <input type="text" name="edad" id="edad" value="" size="4"><br>
+	Localidad: <input type="text" name="loc" id="loc" value=""><br>
+	Cuota: <input type="text" name="cuo" id="cuo" value="" disabled=""><br>
+	
+	
+	<input type="button" value="Añadir nuevo socio socio" id="" onclick="crearSocio()">
+	<input type="button" value="Listar socios" id="" onclick="listarSocios()">
+	<input type="button" value="Listar socios por localidad" id="" onclick="listarPorLocalidad()">
+	<input type="button" value="Listar por DNI" id="" onclick="listarPorDNI()">
+	<hr>
+	<p id="mensaje">Mensajes informativos</p>
+    
+    <script>
+        var ventanita;
+        class Socio{
+            constructor(nombre, apellidos, edad, DNI, localidad){
+                this.DNI = DNI;
+                this.nombre = nombre;
+                this.apellidos = apellidos;
+                this.edad = parseInt(edad);
+                this.localidad = localidad;
+                this.setCuota()
+                
+            }
+            setNombre = (nombre) =>{this.nombre=nombre}
+            setApellidos = (apellidos) =>{this.nombre=apellidos} 
+            setEdad = (edad) =>{this.nombre=edad}
+            setCuota = () => {this.cuotaAnual = (this.edad < 18) ? 5 : (this.edad < 65) ? 10 : 0};
+            toString(){
+                return "Nombre: " + this.nombre +
+                       "<br>Apellidos: " + this.apellidos + 
+                       "<br>Edad: " + this.edad + 
+                       "<br>DNI: " + this.DNI +
+                       "<br>Localidad: " + this.localidad + 
+                       "<br>Cuota anual: " + this.cuotaAnual;
+            }
+
+        }
+
+        function crearSocio(){
+            socios.push(new Socio(valor("nom"),valor("ape"),valor("edad"),valor("dni"),valor("loc")));
+        }
+
+        function valor(id){
+            return document.getElementById(id).value;
+        }
+
+        function listarSocios(){
+            var socioActual = 0;
+            var salida = "<table border=1><tr> <th>Nombre</th> <th>Apellido</th> <th>Edad</th> <th>DNI</th> <th>Localidad</th><th>Editar</th></tr>";
+            socios.forEach(socio => {
+                salida += "<th>" + socio.nombre + "</th> <th>" + socio.apellidos + "</th> <th>" + socio.edad + "</th> <th>"+ socio.DNI + "</th> <th>" + socio.localidad  + "</th><th><button onclick=\"{window.opener.modificar(window.opener.socios[" + socioActual++ + "]);window.opener.listarSocios()}\">Editar</button></th></tr>";
+            });
+            salida+="</table>";
+            ventanita = window.open("","socio","width=500,height=500");
+                ventanita.document.body.innerHTML = salida;
+        }
+
+        function listarPorDNI(){
+            socios = socios.sort(function(a,b) {return a.DNI > b.DNI ? 1 : a.DNI < b.DNI ? -1 : 0});
+            listarSocios();
+        }
+
+        function listarPorLocalidad(){
+            socios = socios.sort(function(a,b) {return a.localidad > b.localidad ? 1 : a.localidad < b.localidad ? -1 : 0});
+            listarSocios();
+        }
+
+        function modificar(socio){    
+            socio.DNI = ventanita.prompt("Introduce el DNI");
+            socio.nombre = ventanita.prompt("Introduce el nombre");
+            socio.apellidos = ventanita.prompt("Introduce los apellidos");
+            socio.edad = parseInt(ventanita.prompt("Introduce la edad"));
+            socio.localidad = ventanita.prompt("Introduce la localidad");
+            socio.setCuota();
+            listarSocios();
+        }
+
+        var s = new Socio("pablo","vosk", 19, "12345678Z", "Ourense");
+        var s1 = new Socio("Alez","Carb", 19, "87654321A", "Vigo");
+        var s2 = new Socio("Ivan","Cui", 19, "55555555M", "Madrid");
+        var socios = new Array(s,s1,s2);
+        console.log(s);
+    </script>
+
+
+</body></html>
