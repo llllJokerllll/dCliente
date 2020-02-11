@@ -1,0 +1,133 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="">
+    <title>Paises </title>
+</head>
+
+<body>
+    <table style="width: 255px;">
+        <tbody>
+            <tr>
+                <td style="width: 160px;">Pa&iacute;s</td>
+                <td style="width: 139px;"><input type="text" id="pais" value=""></td>
+            </tr>
+            <tr>
+                <td style="width: 160px;">Capital</td>
+                <td style="width: 139px;"><input type="text" id="capital" value=""></td>
+            </tr>
+            <tr>
+                <td style="width: 160px;">Moneda</td>
+                <td style="width: 139px;"><input type="text" id="moneda" value=""></td>
+            </tr>
+            <tr>
+                <td style="width: 160px;">Idioma/s oficial/es</td>
+                <td style="width: 139px;"><textarea id="idiomas" disabled="true" placeholder="Idiomas"></textarea>
+                    <input type="text" id="lengua" value="" size="20"> <input type="button" id="anadir_idioma" value="Añadir idioma" onclick="anadirIdioma()">
+
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 160px;">bandera</td>
+                <td style="width: 139px;"><input type="text" id="bandera" value=""></td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="button" id="anadir" value="Añadir Pais" onclick="nuevoPais()">
+    <input type="button" id="anadir" value="Listar Paises" onclick="listar()">
+    <input type="button" id="anadir" value="Listar Paises alfabéticamente" onclick="listarAlf()">
+    <input type="button" id="anadir" value="Buscar paises por campo" onclick="buscarCampo()">
+    <hr>
+
+    <table border=1 cellpadding=0 cellspacing=0 id="listar">
+    </table>
+
+    <script>
+        var paises = new Array();
+        var campo = null;
+
+        class Pais {
+            constructor(pais, capital, moneda, idiomas, bandera) {
+                this.pais = pais;
+                this.capital = capital;
+                this.moneda = moneda;
+                this.idiomas = idiomas;
+                this.bandera = bandera;
+            }
+        }
+
+        function nuevoPais() {
+            if (verificar()) {
+                paises.push(new Pais(valor("pais"), valor("capital"), valor("moneda"), valor("idiomas"), valor("bandera")));
+                limpiarCampos();
+            }
+        }
+
+        function listar(paises = window.paises) {
+            id("listar").innerHTML = "<tr> <td> País </td> <td> Capital </td> <td> Moneda </td> <td> Idiomas </td> <td> Bandera </td> </tr>"
+            paises.forEach(pais => {
+                id("listar").innerHTML += "<tr> <td>" + pais.pais + "</td> <td>" + pais.capital + "</td> <td>" + pais.moneda + "</td> <td>" + pais.idiomas + "</td> <td><img src=" + pais.bandera + " width=150 heigth=750></td> </tr>"
+            });
+        }
+
+        function anadirIdioma() {
+            const regIdiomas = /^[a-zA-Z-áéíóúñ]+$/;
+            id("idiomas").value += (valor("lengua") != "" && regIdiomas.test(valor("lengua")) && !valor("idiomas").match(valor("lengua"))) ? valor("lengua") + "\n" : "";
+            id("lengua").value = "";
+
+        }
+
+        function listarAlf() {
+            paises = paises.sort((p1, p2) => p1.pais > p2.pais ? 1 : p1.pais == p2.pais ? 0 : -1)
+            listar()
+        }
+
+        function limpiarCampos() {
+            id("pais").value = "";
+            id("capital").value = "";
+            id("moneda").value = "";
+            id("idiomas").value = "";
+            id("bandera").value = "";
+        }
+
+        function buscarCampo() {
+            campo = (campo == undefined || campo.self == null) ? window.open("", "Buscar", "height=200,width=200") : campo;
+            campo.document.body.innerHTML += ("Campo: <input type=\"text\" id=\"campo\"></input>")
+            campo.document.body.innerHTML += ("Valor: <input type=\"text\" id=\"valor\"></input>")
+            campo.document.body.innerHTML += ("<button onclick=\"{{var paises2 = new Array();const camp = document.getElementById('campo').value;const valor = document.getElementById('valor').value;window.opener.paises.forEach((pais) => {if (pais[camp.toLowerCase()].match(valor)) paises2.push(pais);});window.opener.listar(paises2);window.close()}}\">Buscar</button>")
+        }
+
+        function verificar() {
+            let valido = false;
+            const pais = valor("pais");
+            const capital = valor("capital");
+            const moneda = valor("moneda");
+            const idiomas = valor("idiomas");
+            const bandera = valor("bandera");
+            const letras = /^[a-zA-Zñáéíóú]+$/;
+            const regBandera = /^[a-zA-Z0-9ñáéíóú:_/.-]+$/;
+
+            if (pais != "" && capital != "" && moneda != "" && idiomas != "" && bandera != "") {
+                if (letras.test(pais) && letras.test(capital) && letras.test(moneda) && regBandera.test(bandera)) {
+                    valido = true;
+                } else {
+                    alert("Uno o más campos tienen caracteres no válidos")
+                }
+            } else {
+                alert("No se admiten campos vacíos");
+            }
+            return valido;
+        }
+
+        function valor(buscarID) {
+            return id(buscarID).value;
+        }
+
+        function id(id) {
+            return document.getElementById(id);
+        }
+    </script>
+</body>
+
+</html>
