@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Libro de recetas</title>
+<meta charset="utf-8">
+<script src="script.js"></script>
+</head>
+<body>
+<form name="formulario" id="formulario">
+  <label for="TITULO">TITULO:</label>  <input type="text"  id="titulo" /> <br>
+  <label for="ISBN">ISBN:</label>  <input type="text"  id="isbn" /> <br>
+  <label for="TIPO_EDICION">TIPO EDICION:</label>  <input type="text" id="tipoedicion" /><br>
+  <label for="AUTOR">AUTOR:</label>  <input type="text" id="autor" /><br>
+  <button type="button" id="button0" value="guardar" onclick="guardarLibro()">Guardar</button>
+  <button type="button" id="button1" value="anadir" onclick="anadirReceta()">Añadir Receta</button>
+  <button type="button" id="button2" onclick="mostrarRecetas()">Mostrar Recetas</button>
+</form>
+<button type="button" id="button3" onclick="antReceta()">Anterior</button>
+<button type="button" id="button4" onclick="sigReceta()">Siguiente</button>
+<p id="listado"></p>
+</body>
+</html>
