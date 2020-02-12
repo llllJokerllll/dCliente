@@ -1,5 +1,5 @@
 var contadorCodigo = 0;
-var contadorLibros = 0;
+var contadorLibros = -1;
 var librosCocina = new Array();
 
 class LibroDeCocina {
@@ -27,7 +27,7 @@ class LibroDeCocina {
     getTitulo() {
         return this.titulo;
     }
-    
+
     setIsbn(isbn) {
         this.isbn = isbn;
     }
@@ -53,11 +53,11 @@ class LibroDeCocina {
     }
 
     toString() {
-        return "Codigo: " + this.codigo + 
-               "<br>Titulo: " + this.titulo +
-               "<br>ISBN: " + this.isbn +
-               "<br>Tipo de Edición: " + this.edicion +
-               "<br>Autor: " + this.autor;
+        return "Codigo: " + this.codigo +
+            "<br>Titulo: " + this.titulo +
+            "<br>ISBN: " + this.isbn +
+            "<br>Tipo de Edición: " + this.edicion +
+            "<br>Autor: " + this.autor;
     }
 
 }
@@ -93,38 +93,80 @@ class Receta {
         return this.preparacion;
     }
 
-    toString() { 
+    toString() {
         return "Nombre: " + this.nombre +
-               "<br>Ingredientes: " + this.ingrediente +
-               "<br>Preparacion: " + this.preparacion;
+            "<br>Ingredientes: " + this.ingrediente +
+            "<br>Preparacion: " + this.preparacion;
     }
 
 }
+
+class Ingrediente {
+    constructor(nomIngr,cantidad,unidades) {
+        this.nomIngr = nomIngr;
+        this.cantidad = cantidad;
+        this.unidades = unidades;
+    }
+    toString() {
+        return this.nomIngr + " " + this.cantidad + " " + this.unidades + "<br>";
+    }
+};
 
 function guardarLibro() {
     librosCocina.push(new LibroDeCocina(valor("titulo"), valor("isbn"), valor("tipoedicion"), valor("autor"), contadorCodigo));
     limpiarCampos();
     contadorCodigo++;
+    contadorLibros++;
+    if (contadorLibros > 0) {
+        id("button4").disabled = false;
+    }
 }
 
 function anadirIng(numeroIng) {
     var arrayIng = new Array();
-    var ingrediente = { nomIngr : "" , cantidad : "" , unidades : "" };
-    for (let i = 0; i < numeroIng; i++ ) {
-        ingrediente.nomIngr = prompt("Por favor, introduzca el nombre del ingrediente");
-        ingrediente.cantidad = prompt("¿Cantidad?");
-        ingrediente.unidades = prompt("¿Unidades?");
-        arrayIng[i] = ingrediente;
+    for (let i = 0; i < numeroIng; i++) {
+        aux = new Ingrediente(prompt("Por favor, introduzca el nombre del ingrediente"),prompt("¿Cantidad?"),prompt("¿Unidades?"));
+        arrayIng.push(aux);
     }
     return arrayIng;
 }
 
 function anadirReceta() {
-    let numeroIng = parseInt(prompt("Por favor, introduzca el número de ingredientes"));
-    let nombreR = prompt("Por favor, introduzca el nombre de la receta");
-    let ingR = anadirIng(numeroIng);
-    let preparacion = prompt("Por favor, introduzca el modo de preparación");
-    librosCocina[contadorLibros].recetas.push(new Receta(nombreR, preparacion, ingR));
+    if (contadorLibros != -1) {
+        let nombreR = prompt("Por favor, introduzca el nombre de la receta");
+        let numeroIng = parseInt(prompt("Por favor, introduzca el número de ingredientes"));
+        let ingR = anadirIng(numeroIng);
+        let preparacion = prompt("Por favor, introduzca el modo de preparación");
+        librosCocina[contadorLibros].recetas.push(new Receta(nombreR, preparacion, ingR));
+    }
+
+}
+
+function mostrarRecetas() {
+    id("listar").innerHTML = "<tr> <td> Nombre </td> <td> Ingredientes </td> <td> Modo Preparación </td> </tr>"
+    librosCocina[contadorLibros].recetas.forEach(recetas => {
+        id("listar").innerHTML += "<tr> <td>" + recetas.nombre + "</td> <td>" + recetas.ingrediente + "</td> <td>" + recetas.preparacion + "</td> </tr>"
+    });
+}
+
+function antReceta() {
+    if (contadorLibros > 0) {
+        contadorLibros--;
+    }
+    if (contadorLibros == 0) {
+        id("button3").disabled = true;
+    }
+    id("button4").disabled = false;
+}
+
+function sigReceta() {
+    if (contadorLibros < librosCocina.length - 1) {
+        contadorLibros++;
+    }
+    if (contadorLibros == librosCocina.length - 1) {
+        id("button4").disabled = true;
+    }
+    id("button3").disabled = false;
 }
 
 function limpiarCampos() {
