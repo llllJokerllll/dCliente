@@ -4,7 +4,65 @@
 <meta charset="utf-8">
 <meta name="author" content="">
 <title></title>
-<script></script>
+<script>
+
+function limpiarCampos() {
+    document.getElementsByName("fec").values("");
+    document.getElementsByName("emp").values("");
+    document.getElementsByName("cli").values("");
+    document.getElementsByName("grs").values("");
+    document.getElementsByName("comp").values("");
+    document.getElementsByName("cta").values("");
+}
+
+function comprobar() {
+    const fechaCreacion = /^(0[1-9]|[12]\d|3[01])(\/)(0[1-9]|1[0-2])(\/)(\d{4})$/;
+    const empleado = /^([A-Z]{2})(\W)(\d{4})$/;
+    const destinatario = /^([A-Z]{2,3})(\_)([a-z]{3,})(\:)(\d{4})$/;
+    const gramos = /^[1-9][0-9]{2}|[1-5][0-9]{3}$/;
+    const composicion = /^[1-9][0-9]{2}|[1-5][0-9]{3}[g][A-Z]{1,2}?[0-9][A-Z]{1,2}?[0-9]$/;
+    const numeroCuenta = /^[A-Z]{2}[0-9]{2}\-[0-9]{12}\-[0-9]{2}$/;
+    let resultado;
+
+    if (document.getElementsByName("fec")[0].value != "" && document.getElementsByName("cli")[0].value != "" && document.getElementsByName("grs")[0].value != "" && document.getElementsByName("comp")[0].value != "" && document.getElementsByName("cta")[0].value != "") {
+        resultado = "Comprobación del formulario: \n";
+        if (fechaCreacion.test(document.getElementsByName("fec")[0].value)) {
+            resultado += "Fecha: Correcto\n";
+        } else {
+            resultado += "Fecha: Incorrecto\n";
+        }
+        if (empleado.test(document.getElementsByName("emp")[0].value)) {
+            resultado += "Empleado: Correcto\n";
+        } else {
+            resultado += "Empleado: Incorrecto\n";
+        }
+        if (destinatario.test(document.getElementsByName("cli")[0].value)) {
+            resultado += "Cliente: Correcto\n";
+        } else {
+            resultado += "Cliente: Incorrecto\n";
+        }
+        if (gramos.test(document.getElementsByName("grs")[0].value)) {
+            resultado += "Gramos: Correcto\n";
+        } else {
+            resultado += "Gramos: Incorrecto\n";
+        }
+        if (composicion.test(document.getElementsByName("comp")[0].value)) {
+            resultado += "Composición: Correcto\n";
+        } else {
+            resultado += "Composición: Incorrecto\n";
+        }
+        if (numeroCuenta.test(document.getElementsByName("cta")[0].value)) {
+            resultado += "Num. cta EEUU: Correcto\n";
+        } else {
+            resultado += "Num. cta EEUU: Incorrecto\n";
+        }
+        alert(resultado);
+    } else {
+        alert("Algun campo obligatorio está vacio!!!");
+    }
+}
+
+</script>
 </head>
 
 <body>
@@ -14,7 +72,7 @@
 <tbody>
 <tr>
 <td style="width: 136px;">Fecha:</td>
-<td style="width: 133px;"><input type="text" name="fec" value="" required/></td>
+<td style="width: 133px;"><input type="text" name="fec" value="" /></td>
 </tr>
 <tr>
 <td style="width: 136px;">Empleado:</td>
@@ -37,7 +95,9 @@
 <td style="width: 133px;"><input type="text" name="cta" value="" /></td>
 </tr>
 <tr>
-<td style="width: 133px;" colspan="2"><button type="submit" value="Registrar">Registrar</button><button value="limpiar campos" onclick="" >Limpiar Campos</button></td>
+<td style="width: 133px;" colspan="2">
+    <button type="submit" value="Registrar" onclick="comprobar()">Registrar</button>
+    <button value="limpiar campos" onclick="limpiarCampos()" >Limpiar Campos</button></td>
 </tr>
 </tbody>
 </table>
