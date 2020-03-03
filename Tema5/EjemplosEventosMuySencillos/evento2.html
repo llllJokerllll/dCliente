@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="">
+<title></title>
+<script>
+function cambiaBorde(evento) {
+
+ var ev = evento;
+  switch(ev.type) { //detección del tipo de evento
+    case 'mouseover':
+      this.style.borderColor = 'black'; this.style.backgroundColor = 'red';
+      break;
+    case 'mouseout':
+      this.style.borderColor = 'silver';  this.style.backgroundColor = 'white';
+      break;
+  }
+}
+
+
+window.onload = function() { 
+  //carga de los manejadores de evento asociados al elemento "seccion" una vez que la página ha sido totalmente cargada
+  //modelo de eventos tradicional
+  document.getElementById("seccion").onmouseover = cambiaBorde;
+  document.getElementById("seccion").onmouseout = cambiaBorde;
+   
+}
+
+</script>
+</head>
+
+<body>
+<div id="seccion" style="width:150px; height:60px; border:thin solid silver">
+  Sección de contenidos...
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>

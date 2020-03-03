@@ -1,27 +1,30 @@
+<!DOCTYPE html>
 <html> 
 <head> 
    	<title>Ejemplo Checkbox</title> 
 <script> 
 function alertaChecked(){ 
-   	alert(document.miFormulario.miCheck.checked) 
-} 
-function alertaValue(){ 
-   	alert(document.miFormulario.miCheck.value) 
-} 
-function metodoClick(){ 
-   	document.miFormulario.miCheck.click() 
+	let res = "Tus hobbies son: ";
+	let seleccion = document.getElementsByTagName("input");
+	for (let i = 0; i < seleccion.length; i++) {
+		if (document.getElementsByTagName("input")[i].checked) {
+			res += document.getElementsByTagName("input")[i].value + ", ";
+		}
+	}
+	return document.getElementById("mensaje").innerHTML = res;   
+
 } 
 </script> 
 </head>
 
 <body> 
 <form name="miFormulario" action="mailto:promocion@guiarte.com" enctype="text/plain"> 
-<input type="checkbox"> Fotografía </input><br>
-<input type="checkbox"> Yoga </input><br>
-<input type="checkbox"> Bailes de salón </input><br>
-<input type="checkbox"> Parapente </input><br>
-<input type="checkbox"> Cine </input><br>
-<input type="checkbox"> Música </input><br>
+<input type="checkbox" value="Fotografia"> Fotografía </input><br>
+<input type="checkbox" value="Yoga"> Yoga </input><br>
+<input type="checkbox" value="Bailes de salon"> Bailes de salón </input><br>
+<input type="checkbox" value="Parapente"> Parapente </input><br>
+<input type="checkbox" value="Cine"> Cine </input><br>
+<input type="checkbox" value="Musica"> Música </input><br>
 <br> 
 <br> 
 <input type="button" value="Cuales son tus hobbies? " onclick="alertaChecked()"> 
@@ -29,6 +32,6 @@ function metodoClick(){
 <br> 
 <br> 
 </form> 
-<p id="mensaje">Tus hobbies son Fotografía,Yoga y Cine</p>
+<p id="mensaje"></p>
 </body> 
 </html>

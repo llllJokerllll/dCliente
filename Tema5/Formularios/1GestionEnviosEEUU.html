@@ -52,7 +52,11 @@ function comprobar() {
             resultado += "Composición: Incorrecto\n";
         }
         if (numeroCuenta.test(document.getElementsByName("cta")[0].value)) {
-            resultado += "Num. cta EEUU: Correcto\n";
+            if (comprobarNumAcc()) {
+                resultado += "Num. cta EEUU: Correcto\n";
+            } else {
+                resultado += "Num. cta EEUU: Incorrecto\n";
+            }
         } else {
             resultado += "Num. cta EEUU: Incorrecto\n";
         }
@@ -60,6 +64,29 @@ function comprobar() {
     } else {
         alert("Algun campo obligatorio está vacio!!!");
     }
+}
+
+function comprobarNumAcc() {
+    let cuenta = document.getElementsByName("cta")[0].value;
+    let letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let num = 0;
+    let numeros = parseInt(cuenta.slice(2,4));
+    for (let i = 0; i < 2; i++) {
+        for (let j = 0; j < letras.length; j++) {
+            if (letras.charAt(j) == cuenta.charAt(i)) {
+                num += j;
+                break;
+            }
+        }
+    }
+    if (num < 10) {
+        num = "0" + num;
+    }
+
+    if (parseInt(num) == numeros) {
+        return true;
+    }
+    return false;
 }
 
 </script>

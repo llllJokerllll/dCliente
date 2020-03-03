@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="">
+<title>Informacion de un evento</title>
+</head>
+
+<body>
+<h1 id="eventos">Obtener informacion</h1>
+<h2 id="parrafo1">parrafo1</h2>
+<h2 id="parrafo2">parrafo2</h2>
+<script>
+//se añaden manejadores para los eventos "mouseover", "mouseout" sobre el elemento con id="eventos"
+//se añaden manejadores de evento para el evento "click" sobre los elementos "parrafo1" y "parrafo2"
+document.getElementById("eventos").addEventListener("mouseover",manejador);
+document.getElementById("eventos").addEventListener("mouseout",manejador);
+document.getElementById("parrafo1").addEventListener("click",saludo);
+document.getElementById("parrafo2").addEventListener("click",saludo);
+
+
+function manejador (e){
+	if (!e) e = window.event;
+	switch (e.type){
+		case "mouseover" :  this.style.color = "purple"; 
+							break;
+		case "mouseout"	:	this.style.color = "yellow";
+							break;
+
+	}
+} 
+
+function saludo (e){
+	if (!e) e = window.event;
+	if (e.target.id == "parrafo1") alert ("Has pulsado el primer párrafo");
+	else if (e.target.id == "parrafo2") alert ("Has pulsado el segundo parrafo");
+	alert (" Has pulsado "+ e.target.id );
+	
+	
+}
+</script>
+<br><br><br>
+
+
+</body>
+</html>

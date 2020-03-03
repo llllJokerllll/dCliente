@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="">
+<title></title>
+<script>
+
+window.onload = function() {
+  var elementoDiv =  document.getElementById("seccion");
+ 
+  elementoDiv.addEventListener('mouseover',cambiarBordeN,false);
+  elementoDiv.addEventListener('mouseout',cambiarBordeG,false);
+  
+  // https://www.w3schools.com/js/js_htmldom_css.asp
+  function cambiarBordeN() {
+  elementoDiv.style.borderColor = 'black';
+    
+  }
+
+  function cambiarBordeG() {
+  elementoDiv.style.borderColor = 'silver';
+  }
+  
+}
+
+</script>
+</head>
+
+<body>
+<div id="seccion" style="width:150px; height:60px; border:thin solid silver">
+  Sección de contenidos...
+</div>
+
+<br><br>
+</body>
+</html>

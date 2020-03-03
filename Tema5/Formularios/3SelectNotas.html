@@ -1,7 +1,14 @@
+<!DOCTYPE html>
 <html> 
 <head> 
    	<title>Media notas</title> 
 <script> 
+
+function calculaMedia() {
+	let res = parseFloat(parseFloat(document.getElementsByTagName("select")[0].value) + parseFloat(document.getElementsByTagName("select")[1].value) + parseFloat(document.getElementsByTagName("select")[2].value) + parseFloat(document.getElementsByTagName("select")[3].value)) / 4;
+	return document.getElementById("mensaje").innerHTML = "La media de notas de los 4 módulos es: " + res;
+}
+
 </script> 
 </head>
 

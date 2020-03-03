@@ -1,7 +1,18 @@
+<!DOCTYPE html>
 <html> 
 <head> 
    	<title>Lista de la compra</title> 
 <script> 
+
+function anadirElemento() {
+	let opcion = document.getElementsByTagName("input")[0];
+	let res = document.createElement("option");
+	res.value = opcion.value;
+	let texto = document.createTextNode(opcion.value);
+	res.appendChild(texto);
+	document.getElementsByTagName("select")[0].add(res);
+}
+
 </script> 
 </head>
 
@@ -11,7 +22,7 @@ LISTA DE LA COMPRA
 <br>
 Introduzca item: <input type text="" value="kiwis"></input>
 <br> 
-<input type=button value="Añadir elemento" onclick=""> 
+<input type="button" value="Añadir elemento" onclick="anadirElemento()"> 
 <br> 
 <select name="lista"> 
 <option value="azucar">azúcar
