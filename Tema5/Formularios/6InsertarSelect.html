@@ -13,6 +13,11 @@ function anadirElemento() {
 	document.getElementsByTagName("select")[0].add(res);
 }
 
+function borrarElemento() {
+	let index = document.getElementsByTagName("select")[0].selectedIndex;
+	document.getElementsByTagName("select")[0].remove(index);
+}
+
 </script> 
 </head>
 
@@ -22,7 +27,8 @@ LISTA DE LA COMPRA
 <br>
 Introduzca item: <input type text="" value="kiwis"></input>
 <br> 
-<input type="button" value="Añadir elemento" onclick="anadirElemento()"> 
+<input type="button" value="Añadir elemento" onclick="anadirElemento()">
+<input type="button" value="Borrar elemento" onclick="borrarElemento()"> 
 <br> 
 <select name="lista"> 
 <option value="azucar">azúcar
