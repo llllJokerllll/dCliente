@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<script type="text/javascript" src="ejercicio6.js"></script>
+
+<head>
+    <meta charset="utf-8">
+    <title> Modelo de eventos avanzados W3C </title>
+</head>
+
+<body>
+    <form action="mailto:micorreo@servidor.com" method="post" enctype="text/plain">
+        <h2>FORMULARIO DE INSCRIPCION</h2>
+        <fieldset>
+            <legend>datos personales</legend>
+            <p>Nombre: <input type="text" id="campo_1" name="nombre" /><br>
+                Primer apellido: <input type="text" id="campo_2" name="apellido1" size="25" /><br>
+                Segundo apellido;<input type="text" id="campo_3" name="apellido2" size="25" /><br>
+            </p>
+            <p>Dirección: <input type="text" id="campo_4" name="direccion" size="50"
+                    value="calle o plaza, num y piso." /></p>
+            <p>e-mail: <input type="text" id="campo_5" name="e-mail" size="35" value=" @ " /></p>
+            <p>contraseña: <input type="password" id="campo_6" name="contraseña" /></p>
+        </fieldset>
+    </form>
+
+    <p id="mensaje"></p>
+</body>
+
+</html>
