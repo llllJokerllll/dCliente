@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>webstorage</title>
+    <script>
+        window.onload = () => {
+            if (typeof(Storage) != "undefined") {
+                const id = (dir) => document.getElementById(dir);
+                const actualizar = () => {
+                    id("saludo").innerHTML = "Hola " + localStorage.getItem("nombre") + "!!!";
+                    id("contador").innerHTML = "Contador: " + localStorage.getItem("numVeces");
+                };
+                const incrementar = () => {
+                    localStorage.setItem("numVeces", +localStorage.getItem("numVeces") + 1)
+                    actualizar();
+                }
+
+                id("incrementar").addEventListener("click", incrementar)
+                id("decrementar").addEventListener("click", () => {
+                    localStorage.setItem("numVeces", localStorage.getItem("numVeces") - 1)
+                    actualizar();
+                })
+                id("logout").addEventListener("click", () => {
+                    localStorage.clear()
+                    location.reload()
+                })
+
+                if (localStorage.getItem("nombre") == null) {
+                    localStorage.setItem("nombre", prompt("Introduce tu nombre"))
+                    localStorage.setItem("numVeces", 0)
+                } else {
+                    alert("Hola " + localStorage.getItem("nombre"))
+                    incrementar();
+                }
+
+                actualizar();
+
+
+            } else {
+                alert("Web Storage no soportado")
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button type="button" id="incrementar">Incrementar</button>
+    <button type="button" id="decrementar">Decrementar</button>
+    <button type="button" id="logout">Logout</button>
+    <p id="saludo"></p>
+    <p id="contador"></p>
+</body>
+
+</html>

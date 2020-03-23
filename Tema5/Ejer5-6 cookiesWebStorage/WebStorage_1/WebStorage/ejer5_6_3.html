@@ -1,0 +1,88 @@
+<style type="text/css">
+    form#pago {
+        margin: auto;
+        background: Green;
+        color: white;
+        font-size: 12px;
+        padding: 30px;
+        width: 350px;
+        border: solid 10px LightSteelBlue;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+    }
+    
+    form#pago fieldset {
+        border: none;
+    }
+    
+    form#pago input {
+        font-size: 12px;
+        background: yellow;
+        border: solid 1px Green;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        float: right;
+        margin-right: 15px;
+        width: 200px;
+    }
+    
+    form#pago ol li {
+        line-height: 25px;
+        list-style: none;
+    }
+    
+    form#pago [required] {
+        border: solid 1px red;
+    }
+    
+    input:required {
+        outline: 1px solid red;
+    }
+</style>
+</head>
+
+<body>
+
+    <form id="pago">
+        <fieldset>
+            <legend>Datos del comprador</legend>
+            <ol>
+                <li>
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" name="nombre" type="text" placeholder="Escribe tu nombre completo" pattern="^([A-Z]{1}[a-z]+\s){2}([A-Z]{1}[a-z]+\s?)+$" required autofocus>
+                </li>
+                <label for="fecha">Fecha de nacimiento</label>
+                <li>
+                    <label for="dia">Día</label>
+                    <input id="dia" name="dia" type="text" placeholder="entre 1 y 31" pattern="^(3[01]{1}|[1-2]{1}[0-9]{1}|[1-9]{1})$" size=2 required>
+                </li>
+                <li>
+                    <label for="dia">Mes</label>
+                    <input id="mes" name="mes" type="text" placeholder="entre 1 y 12" pattern="^([1-9]{1}|(1[0-2]{1}))$" size=2 required>
+                </li>
+                <li>
+                    <label for="dia">Año</label>
+                    <input id="ann" name="ann" type="text" placeholder="entre 1900 y 2020" pattern="^(19[0-9]{2}|20[01]{1}[0-9]{1}|2020)$" size=4 required>
+                </li>
+                <li>
+                    <label for="pais">País</label>
+                    <input id="pais" name="pais" type="text" required>
+                </li>
+            </ol>
+        </fieldset>
+        <fieldset>
+            <legend>Datos de tarjeta de crédito o débito</legend>
+            <ol>
+                <li>
+                    <label for="numtarjeta">Número</label>
+                    <input id="numtarjeta" name="numtarjeta" type="text" pattern="(^\d[0-9]{3}\-?){3}[0-9]{4}$" placeholder="Ej. 5555-4444-3333-2222" required>
+                </li>
+            </ol>
+        </fieldset>
+        -------------------------------------------------
+        <fieldset>
+            <button type="submit">Confirmar pedido</button>
+        </fieldset>
+    </form>
