@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="UTF-8">
+
+		<script src ="ejer1.js"></script>
+		<style type="text/css">
+			label {
+				width: 150px;
+				float: left;
+				margin-bottom: 5px;
+			}
+	
+			input,
+			select {
+				width: 150px;
+				float: left;
+				margin-bottom: 5px;
+			}
+	
+			fieldset {
+				background: #66CCCC;
+				width: 350px;
+				border: thick solid #306;
+			}
+	
+			legend {
+				border-top-width: medium;
+				border-right-width: medium;
+				border-bottom-width: medium;
+				border-left-width: medium;
+				border-top-style: solid;
+				border-right-style: solid;
+				border-bottom-style: solid;
+				border-left-style: solid;
+				background-color: #FFF;
+			}
+	
+			#mensajes {
+				float: left;
+				background: #33FF33;
+				width: 325px;
+			}
+	
+			#errores {
+				float: left;
+				background: #FF6633;
+				width: 325px;
+			}
+	
+			#intentos {
+				float: left;
+				background: #CCFF33;
+				width: 325px;
+			}
+	
+			.error {
+				border: solid 2px #FF0000;
+	
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<form  action="mailto:micorreo@servidor.com" method="post" enctype="text/plain">
+			<h2>FORMULARIO DE INSCRIPCION</h2>
+
+			<fieldset>
+				<legend>datos personales</legend>
+
+				<p>
+					<label for="campo_1">Nombre:</label><input type="text" id="campo_1" name="nombre" maxlength="25" pattern="^([A-ZÁÉÍÓÚºª]+[\s]*)+([A-ZÁÉÍÓÚºª])$" required/><br> 
+					<label for="campo_2">Primer apellido:</label><input type="text" id="campo_2" name="apellido1" maxlength="35" pattern="^([A-ZÁÉÍÓÚºª]+[\s]*)+([A-ZÁÉÍÓÚºª])$" required/><br>
+					<label for="campo_3">Segundo apellido:</label> <input type="text" id="campo_3" name="apellido2" maxlength="35" pattern="^([A-ZÁÉÍÓÚºª]+[\s]*)+([A-ZÁÉÍÓÚºª])$"/><br>
+				</p>
+
+				<p>
+					<label for="campo_4">Dirección:</label>
+					<input type="text" id="campo_4" name="direccion" size="50" value="calle o plaza, num y piso."/><br>
+				</p>
+
+				<p>
+					<label for="campo_5">e-mail:</label> 
+					<input type="text" id="campo_5" name="e-mail" size="35" value=" @ " pattern="(^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$)" required/><br>
+				</p>
+
+				<p>
+					<label for="campo_6">contraseña:</label>
+					<input type="password" id="campo_6" name="contraseña" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}" required/><br>
+				</p>
+			</fieldset>
+
+			<br>
+			<button id="enviar"> Enviar </button>
+			<button type="reset" id="reset"> Reset </button>
+		</form>
+
+		<p id="mensaje"></p>
+	</body>
+
+</html>

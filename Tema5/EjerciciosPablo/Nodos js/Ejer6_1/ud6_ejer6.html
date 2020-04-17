@@ -1,0 +1,186 @@
+<head>
+    <link rel="stylesheet" href="ud6_ejer1_6_CSS.css">
+    <script>
+        //Debeía hacer métodos y optimizarlo un poco más pero hoy me da pereza que mañana es mi cumple, así que ya lo haré otro día jajajaja
+        const id = (dir) => document.getElementById(dir);
+        const crear = (elemento) => document.createElement(elemento);
+
+        window.onload = () => {
+            //Formulario
+            let formulario = [
+                "action=prueba.php",
+                "method=get",
+                "id=form",
+            ];
+            let divs = [
+                ["Datos Personales", "datosPersonales"],
+                ["Otros datos de interés", "otrosDatos"]
+            ];
+            //Datos personales
+            let texto = [
+                ["Nombre(*):", "nombre"],
+                ["Primer apellido(*):", "ap1"],
+                ["Segundo apellido(*):", "ap2"]
+                //Texto, id | name
+            ];
+            let sexo = [
+                ["Hombre", ["type=radio", "name=sexo", "value=H"]],
+                ["Mujer", ["type=radio", "name=sexo", "value=M"]]
+            ];
+            let edad = [
+                ["Menor de 20", ["type=radio", "name=edad", "value=20-"]],
+                ["20-35", ["type=radio", "name=edad", "value=20-35"]],
+                ["36-50", ["type=radio", "name=edad", "value=35-50"]],
+                ["Mayor de 50", ["type=radio", "name=edad", "value=50+"]]
+            ];
+            let pais = [
+                ["España", ["name=pais", "id=pais_esp", "value=esp"]],
+                ["Portugal", ["name=pais", "id=pais_por", "value=por"]],
+                ["Francia", ["name=pais", "id=pais_fra", "value=fra"]],
+                ["Alemania", ["name=pais", "id=pais_ale", "value=alm"]],
+                ["Italia", ["name=pais", "id=pais_ita", "value=ita"]]
+            ];
+            let temas = [
+                ["Juegos", ["type=checkbox", "id=tema_1", "name=tema_1", "value=juegos"]],
+                ["Amistad", ["type=checkbox", "id=tema_2", "name=tema_2", "value=amistad"]],
+                ["Deporte", ["type=checkbox", "id=tema_3", "name=tema_3", "value=deporte"]],
+                ["Libros", ["type=checkbox", "id=tema_4", "name=tema_4", "value=libros"]],
+                ["Series", ["type=checkbox", "id=tema_5", "name=tema_5", "value=series"]],
+                ["Música", ["type=checkbox", "id=tema_6", "name=tema_6", "value=musica"]],
+            ];
+
+
+
+            //Crear Formulario
+            let form = crear("form");
+            formulario.forEach(atributo => {
+                let campo = atributo.split("=");
+                form.setAttribute(campo[0], campo[1]);
+            })
+            document.body.append(form);
+
+            //Crear Divs
+            divs.forEach(atributo => {
+                let div = crear("div");
+                let titulo = crear("h1");
+                titulo.appendChild(document.createTextNode(atributo[0]));
+                div.setAttribute("id", atributo[1]);
+                div.setAttribute("name", atributo[1]);
+
+                div.appendChild(titulo);
+                id("form").appendChild(div);
+            });
+
+            //Crear inputs texto
+            texto.forEach(campo => {
+                let etiqueta = crear("label");
+                etiqueta.appendChild(document.createTextNode(campo[0]));
+                etiqueta.setAttribute("for", campo[1]);
+
+                let input = crear("input");
+                input.setAttribute("id", campo[1]);
+                input.setAttribute("name", campo[1]);
+
+
+                id("datosPersonales").appendChild(etiqueta);
+                id("datosPersonales").appendChild(input);
+            });
+
+            //Crear campos sexo
+            let campoSexo = crear("p");
+            campoSexo.appendChild(document.createTextNode("Sexo(*):"));
+            sexo.forEach(campo => {
+                let etiqueta = crear("label");
+                etiqueta.appendChild(document.createTextNode(campo[0]));
+                etiqueta.setAttribute("for", campo[1]);
+
+                let radio = crear("input");
+                campo[1].forEach(atr => {
+                    radio.setAttribute(atr.split("=")[0], atr.split("=")[1])
+                })
+
+                campoSexo.appendChild(etiqueta);
+                campoSexo.appendChild(radio);
+            });
+            id("datosPersonales").appendChild(campoSexo);
+
+            //Crear campos sexo
+            let campoEdad = crear("p");
+            campoEdad.appendChild(document.createTextNode("Edad(*):"));
+            edad.forEach(campo => {
+                let etiqueta = crear("label");
+                etiqueta.appendChild(document.createTextNode(campo[0]));
+                etiqueta.setAttribute("for", campo[1]);
+
+                let radio = crear("input");
+                campo[1].forEach(atr => {
+                    radio.setAttribute(atr.split("=")[0], atr.split("=")[1])
+                })
+                campoEdad.appendChild(etiqueta);
+                campoEdad.appendChild(radio);
+            });
+            id("datosPersonales").appendChild(campoEdad);
+
+            //Crear campo pais
+            let paises = crear("p");
+            paises.appendChild(document.createTextNode("País de nacimiento(*):"));
+            let selection = crear("select");
+            pais.forEach(campo => {
+                let option = crear("option");
+                option.appendChild(document.createTextNode(campo[0]))
+                campo[1].forEach(atr => {
+                    option.setAttribute(atr.split("=")[0], atr.split("=")[1])
+                })
+
+                selection.appendChild(option);
+            });
+            paises.append(selection)
+            id("datosPersonales").appendChild(paises);
+
+            //Crear campos otros temas
+            let temasP = crear("p");
+            temasP.appendChild(document.createTextNode("Estás interesado en otros temas como:"));
+            let listaTemas = crear("ul");
+            temas.forEach(campo => {
+                let li = crear("li");
+                let temaActual = crear("input");
+                li.appendChild(document.createTextNode(campo[0]))
+                campo[1].forEach(atr => {
+                    temaActual.setAttribute(atr.split("=")[0], atr.split("=")[1])
+                })
+                li.appendChild(temaActual);
+                listaTemas.appendChild(li);
+            });
+            temasP.append(listaTemas)
+            id("otrosDatos").appendChild(temasP);
+            //TextArea
+            let textArea = crear("textArea");
+            textArea.setAttribute("id", "otrosTemas");
+            textArea.setAttribute("name", "otrosTemas");
+            textArea.setAttribute("placeholder", "sugerencias");
+            id("otrosDatos").appendChild(textArea);
+
+
+
+
+
+
+            //Crear botones
+            let btn = crear("button");
+            btn.appendChild(document.createTextNode("Envíar"));
+            btn.setAttribute("type", "submit")
+            form.appendChild(btn)
+
+            let btn2 = crear("button");
+            btn2.appendChild(document.createTextNode("Resetear"));
+            btn2.setAttribute("type", "reset")
+            form.appendChild(btn2)
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

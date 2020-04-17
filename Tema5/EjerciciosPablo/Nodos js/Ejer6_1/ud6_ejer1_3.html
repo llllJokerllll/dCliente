@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>Añadir elementos a la lista</title>
+    <script>
+        window.onload = () => {
+            const id = (nombre) => document.getElementById(nombre);
+
+            const elemento = (nombre) => document.getElementsByTagName(nombre);
+
+            const crearElemento = (elemento, valor) => {
+                let elm = document.createElement(elemento);
+                let val = document.createTextNode(valor);
+                elm.appendChild(val);
+                return elm;
+            }
+            elemento("input")[0].addEventListener("click", () => id("lista").appendChild(crearElemento("li", prompt("Introduce el contenido"))))
+            elemento("input")[1].addEventListener("click", () => {
+                id("lista").appendChild(crearElemento("li", prompt("Introduce el contenido")))
+                e = Array.from(elemento("li"))
+                e.sort((z, x) => z.innerHTML.localeCompare(x.innerHTML))
+                e.forEach(x => id("lista").appendChild(x))
+            })
+
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="lista">
+        <li>Lorem ipsum dolor sit amet</li>
+        <li>Consectetuer adipiscing elit</li>
+        <li>Sed mattis enim vitae orci</li>
+        <li>Phasellus libero</li>
+        <li>Maecenas nisl arcu</li>
+    </ul>
+    <input type="button" value="Anadir elemento al final"></input>
+    <input type="button" value="Insertar elemento ordenado"></input>
+</body>
+
+</html>

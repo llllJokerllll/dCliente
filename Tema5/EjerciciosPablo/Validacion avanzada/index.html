@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tarea con formularios</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="tareaCSS.css">
+    <script type="application/javascript" src="js.js"></script>
+</head>
+
+<body>
+    <h1 class="inline">FORMULARIO DE DATOS</h1>
+    <p class="itallic inline">Los datos marcados con un
+        <span class="req">*</span> son obligatorios
+    </p>
+    <form name="formulario" onsubmit="validarDatos()">
+        <fieldset>
+            <legend>DATOS PERSONALES</legend>
+            Nombre (<span class="req">*</span>):
+            <input type="text" name="Nombre" /> Primer Apellido (<span class="req">*</span>):
+            <input type="text" name="Primer Apellido" /> Segundo Apellido (<span class="req">*</span>):
+            <input type="text" name="Segundo Apellido" />
+            <br> Sexo(
+            <span class="req">*</span>):
+            <input type="radio" name="Genero" value="Hombre" /> Hombre
+            <input type="radio" name="Genero" value="Mujer" /> Mujer
+            <input type="radio" name="Genero" value="Otro" /> Otro
+            <br> Edad(
+            <span class="req">*</span>):
+            <input type="text" name="Edad" />
+            <br> País de nacimiento(<span class="req">*</span>):
+            <select name="Pais">
+                    <option value="">Seleccione uno</option>
+                    <option value="Esp">España</option>
+                    <option value="Fr">Francia</option>
+                    <option value="USA">EEUU</option>
+                    <option value="China">China</option>
+                </select>
+        </fieldset>
+        <fieldset>
+            <legend>DATOS BANCARIOS</legend>
+            C.C.C.(<span class="req">*</span>):
+            <input name="C.C.C." type="text" />
+            <br> Tipo de cuenta(<span class="req">*</span>):
+            <input type="radio" name="Cuenta" value="Ahorro" /> Ahorro
+            <input type="radio" name="Cuenta" value="Corriente" /> Corriente
+            <br> Tipo de sucursal(<span class="req">*</span>):
+            <input type="radio" name="Sucursal" value="Banco" /> Banco
+            <input type="radio" name="Sucursal" value="Caja" /> Caja
+            <br>
+
+        </fieldset>
+        <div class="buttons">
+            <input type="submit" value="Enviar Datos" class="button" />
+            <input type="reset" value="Limpiar Datos" class="button" />
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<style>
+    p {
+        color: red;
+    }
+</style>
+
+<body>
+    <div id='div1'></div>
+    <br>
+    <textarea id='texto'>
+
+    </textarea>
+    <br>
+    <button type="button" id="crearparrafo">Crear Parrafo</button>
+    <button type="button" id="crearimagen">Crear Imagen</button>
+    <button type="button" id="borrarultimo">Borrar Ultimo</button>
+    <button type="button" id="borrarprimero">Borrar Primero</button>
+    <button type="button" id="sustituirprimero">Sustituir Primero Vacio</button>
+</body>
+<script>
+    const id = (dir) => document.getElementById(dir);
+    const texto = id("texto");
+
+    id("crearparrafo").addEventListener("click", () => {
+        if (texto.value != "") {
+            let p = document.createElement("p");
+            p.appendChild(document.createTextNode(texto.value));
+            id("div1").appendChild(p);
+        }
+    });
+
+    id("borrarultimo").addEventListener("click", () => {
+        if (id("div1").lastChild != null) {
+            id("div1").removeChild(id("div1").lastChild);
+        }
+    });
+
+    id("borrarprimero").addEventListener("click", () => {
+        if (id("div1").firstChild != null) {
+            id("div1").removeChild(id("div1").firstChild);
+        }
+    });
+    id("sustituirprimero").addEventListener("click", () => {
+        if (id("div1").firstChild != null) {
+            id("div1").firstChild.textContent = "vacio";
+        }
+    });
+    id("crearimagen").addEventListener("click", () => {
+        let img = document.createElement("img");
+        img.setAttribute("src", "imagenes/" + prompt("Nombre del archivo"));
+        img.setAttribute("alt", "imagenes/" + prompt("Descripción"));
+
+        id("div1").appendChild(img);
+
+    });
+</script>
+
+</html>
