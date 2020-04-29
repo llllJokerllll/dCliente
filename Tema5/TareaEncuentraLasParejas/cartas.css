@@ -1,10 +1,10 @@
 body {
-    background-color: mediumturquoiseºº ;
+    background-color: rgb(134, 0, 0);
     text-align: center;
 }
 
 table {
-    background-color: lightgrey;
+    background-color: rgb(255, 255, 255);
     display: inline-block;
     margin-left: auto;
     margin-right: auto;

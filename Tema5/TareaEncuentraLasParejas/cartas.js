@@ -1,7 +1,8 @@
 const id = (dir) => document.getElementById(dir);
 const VIDAS_INICIO = 5;
 const LADO_TABLA = 4;
-const MUSICA = new Audio("https://mdundo.com/stream/391473");
+const MUSICA = new Audio("audio/pista1.mp3");
+
 var imagenes,
     tabla,
     carta1,
@@ -55,7 +56,7 @@ function seleccionar(e) {
             } else {
                 espera = true;
                 if (--vidasActuales == 0) {
-                    if (!confirm("Te has quedado sin vidas =(\n¿Deseas seguir jugando?")) {
+                    if (!confirm("Te has quedado sin vidas :(\n¿Deseas seguir jugando?")) {
                         jugarPartida();
                     }
                 }
@@ -112,8 +113,8 @@ function jugarPartida() {
     cargarCartas();
     generarCartas();
     generarTabla();
-    id("vidas").addEventListener('dblclick', playMusica);
-    id("vidas").addEventListener('click', stopMusica);
+    id("playMusica").addEventListener('click', playMusica);
+    id("stopMusica").addEventListener('click', stopMusica);
     id("parejas").innerHTML = "Parejas encontradas: " + parejas;
     id("vidas").innerHTML = "Vidas restantes: " + vidasActuales;
     if (parejas == LADO_TABLA * LADO_TABLA / 2) {
