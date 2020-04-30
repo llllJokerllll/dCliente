@@ -1,0 +1,185 @@
+body{
+	background-color: #DDD;
+	color: #555555;
+	font-family: sans;
+	margin: 0px;
+}
+a{
+	text-decoration: none;
+}
+h1, h2, h3{
+	margin: 0px;
+}
+
+p a{
+  font-weight: bold;
+  color: #1e8007;
+}
+
+blockquote{
+  font-size: 3em;
+  font-style: italic;
+}
+
+h2 {
+  color: rgb(2,157,74);
+  border-bottom: 1px solid #999999;
+  background-image: url("recursos/imagenes/Icono.png");
+  background-repeat: no-repeat;
+  padding-left: 34px;
+  padding-bottom: 4px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+
+/**/
+h3 a{
+	color: rgb(2,157,74);
+}
+/**/
+
+table{
+  width:100%;
+} 
+
+td{
+  border: 1px solid #AAA;
+}
+th{
+  background-color: #999;
+}
+
+
+label{
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 800px;
+}
+
+/* Estilos para imagen labbdo*/
+#logo-labdoo{
+   float: left;
+   width: 180px;
+}
+
+
+.texto-citado{
+	font-size: 1.2em;
+	font-weight: 800;
+}
+
+.cabecera{
+  margin-bottom: 5px;
+  background: linear-gradient(#FFF, #EEE);
+  height: 178px;
+}
+
+.cuerpo{
+	/**/margin: 0 auto;
+	width: 960px;/**/
+	padding: 15px;
+}
+.titulo{
+	padding: 24px;
+	width: 960px;
+	margin: 0 auto;
+}
+.menuPpal{
+	background-color: #555555;
+	width: 100%;
+	border-top: 1px solid #999999;
+	border-bottom: 2px solid #999999;
+	display: inline-block;
+}
+
+.menuPpal ul{
+    margin: 0px;
+	padding: 0px;
+	width: 960px;
+	margin: 0 auto;
+}
+
+.menuPpal a{
+	font-weight: bold;
+	color: #FFFFFF;
+}
+/* CSS de menu para quitar */
+.menuPpal li{
+	padding: 12px 24px;
+	float: left;
+	display: block;	
+}
+
+.menuPpal li:hover{
+	background-color: #999;
+}
+
+.seleccionado{
+	background-color: rgb(2,157,74);;
+}
+
+/* Fin CSS de menu para quitar*/
+.contenido{
+	/**/width: 652px;
+	float: left;/**/
+	margin-right:24px;
+}
+
+.lateral{
+	/**/width: 236px;
+	float: left;/**/	
+}
+
+.anuncio{
+	margin-bottom: 15px;
+	padding: 10px;
+	background-color: #FFF;
+	border: 1px solid #999999;
+	border-radius: 4px;
+}
+
+.bloque{
+	margin-bottom: 15px;
+	padding: 10px;
+	background-color: #FFF;
+	border: 1px solid #999999;
+	border-radius: 4px;
+}
+
+
+.cabeceraBloque{
+	background-color: #555555;
+	border-bottom: 1px solid #999999;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding: 6px 12px;
+}
+
+.tituloArticulo{
+	background-color: #555555;
+	border: 1px solid #999999;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding: 6px 12px;
+	width: 628px;
+}
+.pie{
+	color: #999;	
+	text-align: center
+}
+.textoPie{
+	margin: 0 auto;
+	display: block;
+	width: 500px;
+}
+
+.clear{
+    clear: both;
+}
+.fecha{
+    font-style: italic;
+}
+
+
+
+

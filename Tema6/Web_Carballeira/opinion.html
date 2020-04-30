@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>CIFP A Carballeira</title>
+		<meta charset="UTF-8"/>
+		<link rel="stylesheet" href="style.css" type="text/css"/>
+	</head>
+	<body>	
+			<div class="cabecera"> <!-- Substituyelo por un contenedor HTML5 -->
+				<div class="titulo">
+					<img src="recursos/imagenes/logo.png"/>
+				</div>
+				<div class="menuPpal"> <!-- Substituyelo por un contenedor HTML5 -->
+					<ul>
+						<li class="elementoMenu" class="seleccionado">
+							<a href="#">Inicio</a>
+						</li>
+						<li class="elementoMenu">
+							<a href="#">Oferta formativa</a>
+						</li>
+						<li class="elementoMenu">
+							<a href="#">Danos tu opinión</a>
+						</li>
+                    </ul>					
+				</div>
+			</div>
+			<div class="cuerpo">				
+				<div class="contenido">	<!-- Substituyelo por un contenedor HTML5 -->			
+					<div class="bloque"> <!-- Substituyelo por un contenedor HTML5 -->
+					    <h2>Danos tu opinión</h2>
+						<form action="encuesta.php" method="POST">
+						   <label for="correo">Correo electrónico:</label><br/>
+						   <input type="email" name="correo" required autofocus aria-required placeholder="cuenta@servidor"/><br/>
+						   <label for="ciclo">Ciclo:</label><br/>
+						   <select name="ciclo">
+						      <option value="SMR">Sistemas Microinformáticos y Redes</option>
+							  <option value="ASIR">Administración de Sistemas Informáticos en Red</option>
+							  <option value="DAM">Desarrollo de Aplicaciones Multiplataforma</option>
+							  <option value="DAW">Desarrollo de Aplicaciones Web</option>
+							  <option value="QUI">Química</option>
+						   </select><br/>
+						   <label for="fecha">¿Cuándo lo terminastes?</label><br/>
+						   <input type="date" name="fecha" required aria-required/><br/>
+						   <label for="instalaciones">¿Cómo valorarías las instalciones del centro?:</label><br/>
+						   Muy malas<input type="range" name="intalaciones" value="5" min="1" max="10"/>Muy buenas<br/>
+						   <label for="profesorado">Del 0 al 10 ¿Cómo valorarías al profesorado?:</label><br/>
+						   <input type="number" name="profesorado" value="5" min="1" max="10"/><br/>
+						   <input type="submit" name="submit" value="Enviar"/>
+						   <input type="reset" name="clear" value="Limpiar"/>
+						</form>
+					</div>
+				</div>
+				<div class="lateral">	<!-- Substituyelo por un contenedor HTML5 -->	
+					<div class="anuncio">						
+						<h3><a href="http://www.edu.xunta.es/fp/premios-proxectos-innovacion-na-fp-convocatoria-2018" target="_blank">Premios Proxectos Innovación na FP</a></h3>
+					</div>
+					<div class="anuncio">						
+						<h3><a href="http://www.edu.xunta.es/fp/eduemprende-convocatoria-programa-finanzas-para-mortais" target="_blank">Eduemprende - Finanzas para mortais</a></h3>
+					</div>
+					<div class="anuncio">						
+						<h3><a href="http://www.edu.xunta.es/fp/mencion-especial-ies-miguel-angel-gonzalez-estevez-premios-europeos-fp" target="_blank">IES Miguel Ángel González Estévez nos Premios Europeos </a></h3>
+					</div>
+					<div class="anuncio">						
+						<h3><a href="http://www.cifpcarballeira.es/index.php/centro/sec-alumnado/159-calendario-exames-2-daw-distancia-2017-2018" target="_blank">Calendario de examenes DAW Distancia</a></h3>
+					</div>
+					<div class="anuncio">						
+						<h3><a href="http://www.cifpcarballeira.es/index.php/centro/sec-alumnado/156-convocatoria-becas-confederacion-hidrografica-2018" target="_blank">Becas confederación hidrográfica Miño-Sil</a></h3>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div class="pie"> <!-- Substituyelo por un contenedor HTML5 -->
+					<span>Sitio construido en <span class="fecha">2017</span></span>
+				</div>
+			</div>
+	</body>
+</html>
