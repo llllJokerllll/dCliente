@@ -1,0 +1,26 @@
+table {
+    border-collapse: collapse;
+    align-content: flex-start;
+    border: 1px solid black;
+}
+
+.imagen {
+    border: 1px solid black;
+    width: 200px;
+    height: 177px;
+}
+
+#resultado {
+    align-content: flex-end;
+}
+
+#flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-content: stretch;
+    align-items: flex-start;
+    background-color: lightcoral;
+    height: 100%;
+}
