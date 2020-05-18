@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <title>Ejercicio 1</title>
+    <style>
+        table {
+            border-collapse:collapse;
+        }
+
+        td {
+        width:60px;
+        height:60px;
+        border:1px solid #000
+        }
+        </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    <!-- este código debes tenerlo 8 veces -->
+    
+    </table>
+    
+    <script>
+        $(document).ready(function() {
+            for (let i = 0; i < 7; i++) {
+                $('table').append('<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>');
+            }
+            $('tr:odd td:even').attr('style', 'background-color: black');
+            $('tr:even td:odd').attr('style', 'background-color: black');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <title>Ejercicio 2</title>
+    <style>
+        table {
+            border-collapse:collapse;
+        }
+
+        td {
+        width:60px;
+        height:60px;
+        border:1px solid #000
+        }
+        </style>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <br>
+    <textarea id="texto"></textarea>
+    <br>
+    <button type="button" id="crearparrafo">Crear Parrafo</button>
+    <button type="button" id="crearimagen">Crear Imagen</button>
+    <button type="button" id="borrarimagen" hidden="true">Borrar Imagen</button>
+    <button type="button" id="borrarultimo">Borrar Ultimo</button>
+    <button type="button" id="borrarprimero">Borrar Primero</button>
+    <button type="button" id="sustituirprimero">Sustituir Primero Vacio</button>
+    <script>
+        $(document).ready(function() {
+
+            $('#crearparrafo').click(function() {
+                if ($('#texto').val() != "") {
+                    $('#div1').css('color', 'red');
+                    $('#div1').append('<p>' + $('#texto').val() + '</p>');
+                }
+            });
+
+            $('#crearimagen').click(function() {
+                $('#div1').append("<img src='img/" + prompt("nombre de la imagen") + "' alt='" + prompt("Descripción") + "'>");
+                $('#crearimagen').attr('hidden', true);
+                $('#borrarimagen').attr('hidden', false);
+            });
+
+            $('#borrarimagen').click(function() {
+                $('img:first').remove();
+                $('#crearimagen').attr('hidden', false);
+                $('#borrarimagen').attr('hidden', true);
+            });
+
+            $('#borrarultimo').click(function() {
+                $('p:last').remove();
+            });
+
+            $('#borrarprimero').click(function() {
+                $('p:first').remove();
+            });
+
+            $('#sustituirprimero').click(function() {
+                $('p:first').html('vacío');
+            });
+        });
+    </script>
+</body>
+
+</html>

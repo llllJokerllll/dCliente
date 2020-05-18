@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+    <p>
+        <input id="texto" type="text">
+        <button type="button" id="anadir">Añadir</button>
+        <button type="button" id="resetear">Resetear lista</button>
+    </p>
+    <ol id="listaCompra"></ol>
+    <script>
+        $(document).ready(function() {
+
+            $('#anadir').click(function() {
+                $('#listaCompra').append('<li>' + $('#texto').val() + '</li>');
+                $('li').bind({
+                'click' : function() { $(this).css({ 'text-decoration' : 'line-through', 'font-style' : 'italic' }); },
+                'dblclick' : function() { $(this).remove(); }
+                });
+            });
+
+            $('#resetear').click(function() {
+                $('li').remove();
+            });
+        });
+    </script>
+</body>
+
+</html>
