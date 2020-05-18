@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <title>Habilitar/deshabilitar el botón submit</title>
+</head>
+
+<body>
+    <input id="accept" name="accept" type="checkbox" value="y"/>I accept<br>  
+    <input id="submitbtn" disabled="disabled" name="Submit" type="submit" value="Submit" />
+
+    <script>
+        $(document).ready(function() {
+            $('#accept').change(function() {
+                $('#submitbtn').attr('disabled', !$('#accept').is(':checked'));
+            });
+        });
+    </script>
+</body>
+
+</html>

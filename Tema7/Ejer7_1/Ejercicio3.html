@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+    <ul>
+        <li>Azúcar</li>
+        <li>Galletas</li>
+        <li>Mermelada</li>
+        <li>Pan</li>
+        <li>Sal</li>
+        </ul>
+        <button id="recorrer">Recorrer lista</button>
+        <button id="contar">Número de elementos</button>
+        <button id="obtener">Recuperar Elemento en posicion</button>
+        <button id="buscar">Buscar elemento</button>
+        <p id="mensaje">Visualizar resultados</p>
+        
+    <script>
+        $(document).ready(function() {
+        const lista = $("li");
+        const resultado = $("#mensaje");
+
+        $("#contar").click(function() {
+            resultado.html("Hay " + lista.length + " elementos");
+        });
+        $("#buscar").click(function() {
+            let elemento = $('li:contains("' + prompt("Introduce el nombre del elemento a buscar") + '")');
+            if (elemento.html() != undefined) {
+                resultado.html(lista.index(elemento));
+            } else {
+                alert("Elemento no encontrado");
+            }
+        });
+        $("#obtener").click(function() {
+            resultado.html(lista.eq(prompt("Introduce el índice del elemento que quieres recuperar")).html());
+        });
+        $("#recorrer").click(function() {
+            let res = "";
+            lista.each(function() {
+                res += $(this).html() + "<br>";
+            });
+            resultado.html(res);
+        });
+
+    })
+    </script>
+</body>
+
+</html>

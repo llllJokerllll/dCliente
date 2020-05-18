@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <title>Ejercicio 2</title>
+    <style>
+        .claseP {
+            border: red 5px solid;
+        }
+
+        .claseDiv {
+            width: 200px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="ciudades">
+        <div id="galicia">
+            <p id="1">A Coruña</p>
+            <p id="2">Lugo</p>
+            <p id="3">Ourense</p>
+            <p>Vigo</p>
+            <p id="4">Pontevedra</p>
+        </div>
+        <div id="asturias">
+            <p id="1">Gijón</p>
+            <p>Oviedo</p>
+            <p>Avilés</p>
+
+        </div>
+    </div>
+    <script>
+        //a
+        $('html');
+        //b
+        console.log($('#1').html());
+        console.log($('p:first').html());
+        //c
+        console.log($('p:last').html());
+        console.log($('p').eq(7).html());
+        //d
+        console.log($('#galicia').has('p').html());
+        //e
+        $('p:first').html('A CORUÑA');
+        //f
+        console.log($('#asturias').not('p #1').html());
+        //g
+        console.log($('p').toArray().length);
+        //h
+        $('p').bind({
+            'mouseover': function() { $(this).addClass('claseP'); },
+            'mouseleave' : function() { $(this).removeClass('claseP'); }
+        });
+    </script>
+</body>
+
+</html>
