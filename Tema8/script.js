@@ -134,6 +134,30 @@ function imprimePlantas() {
     }
 }
 
+function modificarCalle() {
+    if (contadorEdificios != -1) {
+        let nuevaCalle = prompt("Por favor, introduzca el nuevo nombre de la Calle");
+        edificios[edificioActual].setCalle(nuevaCalle);
+        id("log").innerHTML += "La calle del edificio " + edificios[edificioActual].getCodigo() + " es: " + edificios[edificioActual].getCalle() + "<br>";
+    }
+}
+
+function modificarNumero() {
+    if (contadorEdificios != -1) {
+        let nuevoNumero = parseInt(prompt("Por favor, introduzca el nuevo Número"));
+        edificios[edificioActual].setNumero(nuevoNumero);
+        id("log").innerHTML += "El número del edificio " + edificios[edificioActual].getCodigo() + " es: " + edificios[edificioActual].getNumero() + "<br>";
+    }
+}
+
+function modificarCodigoPostal() {
+    if (contadorEdificios != -1) {
+        let nuevoCodigoPostal = parseInt(prompt("Por favor, introduzca el nuevo Código Postal"));
+        edificios[edificioActual].setNumero(nuevoCodigoPostal);
+        id("log").innerHTML += "El código postal del edificio " + edificios[edificioActual].getCodigo() + " es: " + edificios[edificioActual].getCodigoPostal() + "<br>";
+    }
+}
+
 function imprimeCalle() {
     if (contadorEdificios != -1) {
         id("log").innerHTML += "La calle del edificio " + edificios[edificioActual].getCodigo() + " es: " + edificios[edificioActual].getCalle() + "<br>";
