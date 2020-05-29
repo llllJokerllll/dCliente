@@ -43,6 +43,23 @@ class Edificio {
         return this.codigo;
     }
 
+    agregarPlantasYPuertas(pl, pt) {
+        for (let i = 0; i < pl; i++) {
+            this.plantas.push(new Planta(pt));
+            for (let j = 0; j < pt; j++) {
+                this.plantas[this.plantas.length - 1].propietarios.push(new Puerta(j));
+            }
+        }
+    }
+
+    imprimePlantas() {
+        for (let i = 0; i < this.plantas.length; i++) {
+            for (let j = 0; j < this.plantas[i].propietarios.length; j++) {
+                id("log").innerHTML += "Propietario del piso " + (j + 1) + " de la planta " + (i + 1) + ": " + this.plantas[i].propietarios[j].getPropietario() + "<br>";
+            }
+        }
+    }
+
     toString() {
         return "Construido nuevo edificio en calle: " + this.calle + ", nº: " + this.numero + ", CP: " + this.codigoPostal + "<br>";
     }
@@ -99,18 +116,12 @@ function guardarEdificio() {
     }
 }
 
-function agregarPlantasYPuertas() {
+function agregarPlyPt() {
     if (contadorEdificios != -1) {
         let numPlantas = parseInt(prompt("Por favor, introduzca el número de plantas"));
         let puertas = parseInt(prompt("Por favor, introduzca el número de puertas"));
 
-            for (let i = 0; i < numPlantas; i++) {
-                edificios[edificioActual].plantas.push(new Planta(puertas));
-                for (let j = 0; j < puertas; j++) {
-                    edificios[edificioActual].plantas[edificios[edificioActual].plantas.length - 1].propietarios.push(new Puerta(j));
-                }
-            }
-        
+        edificios[edificioActual].agregarPlantasYPuertas(numPlantas, puertas, edificios, edificioActual);
     }
 }
 
@@ -124,13 +135,9 @@ function agregarPropietario() {
     }
 }
 
-function imprimePlantas() {
+function impPlantas() {
     if (contadorEdificios != -1) {
-        for (let i = 0; i < edificios[edificioActual].plantas.length; i++) {
-            for (let j = 0; j < edificios[edificioActual].plantas[i].propietarios.length; j++) {
-                id("log").innerHTML += "Propietario del piso " + (j + 1) + " de la planta " + (i + 1) + ": " + edificios[edificioActual].plantas[i].propietarios[j].getPropietario() + "<br>";
-            }
-        }
+        edificios[edificioActual].imprimePlantas(edificios, edificioActual);
     }
 }
 
